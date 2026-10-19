@@ -1,208 +1,139 @@
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/appsettings.Development.json
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/appsettings.json
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/AgriDirect.staticwebassets.runtime.json
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/AgriDirect
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/AgriDirect.deps.json
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/AgriDirect.runtimeconfig.json
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/AgriDirect.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/AgriDirect.pdb
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/Microsoft.Data.Sqlite.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Sqlite.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/Microsoft.Extensions.Caching.Memory.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/Microsoft.Extensions.DependencyModel.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/Microsoft.Extensions.Logging.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/SQLitePCLRaw.batteries_v2.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/SQLitePCLRaw.core.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/SQLitePCLRaw.provider.e_sqlite3.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/browser-wasm/nativeassets/net8.0/e_sqlite3.a
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/linux-arm/native/libe_sqlite3.so
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/linux-arm64/native/libe_sqlite3.so
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/linux-armel/native/libe_sqlite3.so
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/linux-mips64/native/libe_sqlite3.so
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/linux-musl-arm/native/libe_sqlite3.so
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/linux-musl-arm64/native/libe_sqlite3.so
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/linux-musl-x64/native/libe_sqlite3.so
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/linux-ppc64le/native/libe_sqlite3.so
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/linux-s390x/native/libe_sqlite3.so
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/linux-x64/native/libe_sqlite3.so
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/linux-x86/native/libe_sqlite3.so
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/maccatalyst-arm64/native/libe_sqlite3.dylib
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/maccatalyst-x64/native/libe_sqlite3.dylib
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/osx-arm64/native/libe_sqlite3.dylib
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/osx-x64/native/libe_sqlite3.dylib
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/win-arm/native/e_sqlite3.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/win-arm64/native/e_sqlite3.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/win-x64/native/e_sqlite3.dll
-/home/tanmay/WAD_PROJECT/bin/Debug/net8.0/runtimes/win-x86/native/e_sqlite3.dll
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/AgriDirect.csproj.AssemblyReference.cache
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/AgriDirect.GeneratedMSBuildEditorConfig.editorconfig
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/AgriDirect.AssemblyInfoInputs.cache
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/AgriDirect.AssemblyInfo.cs
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/AgriDirect.csproj.CoreCompileInputs.cache
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/AgriDirect.MvcApplicationPartsAssemblyInfo.cache
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/AgriDirect.RazorAssemblyInfo.cache
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/AgriDirect.RazorAssemblyInfo.cs
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/staticwebassets.build.json
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/staticwebassets.development.json
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/staticwebassets/msbuild.AgriDirect.Microsoft.AspNetCore.StaticWebAssets.props
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/staticwebassets/msbuild.build.AgriDirect.props
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.AgriDirect.props
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.AgriDirect.props
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/staticwebassets.pack.json
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/scopedcss/bundle/AgriDirect.styles.css
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/scopedcss/projectbundle/AgriDirect.bundle.scp.css
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/AgriDirect.csproj.Up2Date
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/AgriDirect.dll
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/refint/AgriDirect.dll
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/AgriDirect.pdb
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/AgriDirect.genruntimeconfig.cache
-/home/tanmay/WAD_PROJECT/obj/Debug/net8.0/ref/AgriDirect.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\AgriDirect.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\refint\AgriDirect.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\AgriDirect.pdb
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\appsettings.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\AgriDirect.staticwebassets.runtime.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\AgriDirect.staticwebassets.endpoints.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\AgriDirect.exe
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\AgriDirect.deps.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\AgriDirect.runtimeconfig.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\AgriDirect.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\AgriDirect.pdb
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Sqlite.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\SQLitePCLRaw.batteries_v2.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\SQLitePCLRaw.core.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\SQLitePCLRaw.provider.e_sqlite3.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\browser-wasm\nativeassets\net8.0\e_sqlite3.a
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\linux-arm\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\linux-arm64\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\linux-armel\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\linux-mips64\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\linux-musl-arm\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\linux-musl-arm64\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\linux-musl-x64\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\linux-ppc64le\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\linux-s390x\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\linux-x64\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\linux-x86\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\maccatalyst-arm64\native\libe_sqlite3.dylib
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\maccatalyst-x64\native\libe_sqlite3.dylib
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\osx-arm64\native\libe_sqlite3.dylib
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\osx-x64\native\libe_sqlite3.dylib
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\win-arm\native\e_sqlite3.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\AgriDirect.csproj.AssemblyReference.cache
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\rpswa.dswa.cache.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\AgriDirect.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\AgriDirect.AssemblyInfoInputs.cache
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\AgriDirect.AssemblyInfo.cs
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\AgriDirect.csproj.CoreCompileInputs.cache
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\AgriDirect.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\AgriDirect.RazorAssemblyInfo.cache
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\AgriDirect.RazorAssemblyInfo.cs
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\rjimswa.dswa.cache.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\scopedcss\bundle\AgriDirect.styles.css
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\scopedcss\projectbundle\AgriDirect.bundle.scp.css
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\staticwebassets.build.json.cache
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\swae.build.ex.cache
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\AgriDirect.csproj.Up2Date
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\AgriDirect.genruntimeconfig.cache
-C:\Users\Rathva Nidhi\OneDrive\Desktop\WAD_PROJECT\WAD_PROJECT\obj\Debug\net8.0\ref\AgriDirect.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\appsettings.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\AgriDirect.staticwebassets.endpoints.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\AgriDirect.staticwebassets.runtime.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\AgriDirect.exe
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\AgriDirect.deps.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\AgriDirect.runtimeconfig.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\AgriDirect.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\AgriDirect.pdb
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Sqlite.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\SQLitePCLRaw.batteries_v2.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\SQLitePCLRaw.core.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\SQLitePCLRaw.provider.e_sqlite3.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\browser-wasm\nativeassets\net8.0\e_sqlite3.a
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\linux-arm\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\linux-arm64\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\linux-armel\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\linux-mips64\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\linux-musl-arm\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\linux-musl-arm64\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\linux-musl-x64\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\linux-ppc64le\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\linux-s390x\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\linux-x64\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\linux-x86\native\libe_sqlite3.so
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\maccatalyst-arm64\native\libe_sqlite3.dylib
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\maccatalyst-x64\native\libe_sqlite3.dylib
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\osx-arm64\native\libe_sqlite3.dylib
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\osx-x64\native\libe_sqlite3.dylib
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\win-arm\native\e_sqlite3.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\AgriDirect.csproj.AssemblyReference.cache
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\rpswa.dswa.cache.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\AgriDirect.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\AgriDirect.AssemblyInfoInputs.cache
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\AgriDirect.AssemblyInfo.cs
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\AgriDirect.csproj.CoreCompileInputs.cache
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\AgriDirect.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\AgriDirect.RazorAssemblyInfo.cache
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\AgriDirect.RazorAssemblyInfo.cs
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\AgriDirect.sourcelink.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\rjimswa.dswa.cache.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\scopedcss\bundle\AgriDirect.styles.css
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\scopedcss\projectbundle\AgriDirect.bundle.scp.css
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\staticwebassets.build.json.cache
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\swae.build.ex.cache
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\AgriDirect.csproj.Up2Date
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\AgriDirect.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\refint\AgriDirect.dll
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\AgriDirect.pdb
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\AgriDirect.genruntimeconfig.cache
-C:\Users\Rathva Nidhi\OneDrive\Desktop\AnnadataDigital\obj\Debug\net8.0\ref\AgriDirect.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/appsettings.Development.json
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/appsettings.json
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/AgriDirect.staticwebassets.runtime.json
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/AgriDirect.staticwebassets.endpoints.json
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/AgriDirect.exe
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/AgriDirect.deps.json
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/AgriDirect.runtimeconfig.json
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/AgriDirect.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/AgriDirect.pdb
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/Microsoft.Data.Sqlite.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Sqlite.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/Microsoft.Extensions.Caching.Memory.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/Microsoft.Extensions.DependencyModel.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/Microsoft.Extensions.Logging.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/SQLitePCLRaw.batteries_v2.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/SQLitePCLRaw.core.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/SQLitePCLRaw.provider.e_sqlite3.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/browser-wasm/nativeassets/net8.0/e_sqlite3.a
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-arm/native/libe_sqlite3.so
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-arm64/native/libe_sqlite3.so
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-armel/native/libe_sqlite3.so
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-mips64/native/libe_sqlite3.so
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-musl-arm/native/libe_sqlite3.so
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-musl-arm64/native/libe_sqlite3.so
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-musl-x64/native/libe_sqlite3.so
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-ppc64le/native/libe_sqlite3.so
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-s390x/native/libe_sqlite3.so
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-x64/native/libe_sqlite3.so
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-x86/native/libe_sqlite3.so
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/maccatalyst-arm64/native/libe_sqlite3.dylib
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/maccatalyst-x64/native/libe_sqlite3.dylib
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/osx-arm64/native/libe_sqlite3.dylib
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/osx-x64/native/libe_sqlite3.dylib
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/win-arm/native/e_sqlite3.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/win-arm64/native/e_sqlite3.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/win-x64/native/e_sqlite3.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/bin/Debug/net8.0/runtimes/win-x86/native/e_sqlite3.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/AgriDirect.csproj.AssemblyReference.cache
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/rpswa.dswa.cache.json
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/AgriDirect.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/AgriDirect.AssemblyInfoInputs.cache
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/AgriDirect.AssemblyInfo.cs
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/AgriDirect.csproj.CoreCompileInputs.cache
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/AgriDirect.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/AgriDirect.RazorAssemblyInfo.cache
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/AgriDirect.RazorAssemblyInfo.cs
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/AgriDirect.sourcelink.json
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/rjimswa.dswa.cache.json
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/rjsmrazor.dswa.cache.json
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/rjsmcshtml.dswa.cache.json
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/scopedcss/bundle/AgriDirect.styles.css
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/scopedcss/projectbundle/AgriDirect.bundle.scp.css
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/staticwebassets.build.json
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/staticwebassets.build.json.cache
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/staticwebassets.development.json
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/staticwebassets.build.endpoints.json
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/swae.build.ex.cache
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/AgriDirect.csproj.Up2Date
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/AgriDirect.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/refint/AgriDirect.dll
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/AgriDirect.pdb
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/AgriDirect.genruntimeconfig.cache
+C:/Users/Rathva Nidhi/OneDrive/Desktop/AnnadataDigital/obj/Debug/net8.0/ref/AgriDirect.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/appsettings.Development.json
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/appsettings.json
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/AgriDirect.staticwebassets.runtime.json
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/AgriDirect
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/AgriDirect.deps.json
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/AgriDirect.runtimeconfig.json
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/AgriDirect.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/AgriDirect.pdb
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/Microsoft.Data.Sqlite.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Sqlite.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/Microsoft.Extensions.Caching.Memory.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/Microsoft.Extensions.DependencyModel.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/Microsoft.Extensions.Logging.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/SQLitePCLRaw.batteries_v2.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/SQLitePCLRaw.core.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/SQLitePCLRaw.provider.e_sqlite3.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/browser-wasm/nativeassets/net8.0/e_sqlite3.a
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-arm/native/libe_sqlite3.so
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-arm64/native/libe_sqlite3.so
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-armel/native/libe_sqlite3.so
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-mips64/native/libe_sqlite3.so
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-musl-arm/native/libe_sqlite3.so
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-musl-arm64/native/libe_sqlite3.so
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-musl-x64/native/libe_sqlite3.so
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-ppc64le/native/libe_sqlite3.so
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-s390x/native/libe_sqlite3.so
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-x64/native/libe_sqlite3.so
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/linux-x86/native/libe_sqlite3.so
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/maccatalyst-arm64/native/libe_sqlite3.dylib
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/maccatalyst-x64/native/libe_sqlite3.dylib
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/osx-arm64/native/libe_sqlite3.dylib
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/osx-x64/native/libe_sqlite3.dylib
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/win-arm/native/e_sqlite3.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/win-arm64/native/e_sqlite3.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/win-x64/native/e_sqlite3.dll
+/home/tanmay/Harsh/AnnadataDigital/bin/Debug/net8.0/runtimes/win-x86/native/e_sqlite3.dll
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/AgriDirect.csproj.AssemblyReference.cache
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/AgriDirect.GeneratedMSBuildEditorConfig.editorconfig
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/AgriDirect.AssemblyInfoInputs.cache
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/AgriDirect.AssemblyInfo.cs
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/AgriDirect.csproj.CoreCompileInputs.cache
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/AgriDirect.MvcApplicationPartsAssemblyInfo.cache
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/AgriDirect.RazorAssemblyInfo.cache
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/AgriDirect.RazorAssemblyInfo.cs
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/AgriDirect.sourcelink.json
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/staticwebassets.build.json
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/staticwebassets.development.json
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/staticwebassets/msbuild.AgriDirect.Microsoft.AspNetCore.StaticWebAssets.props
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/staticwebassets/msbuild.build.AgriDirect.props
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.AgriDirect.props
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.AgriDirect.props
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/staticwebassets.pack.json
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/scopedcss/bundle/AgriDirect.styles.css
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/scopedcss/projectbundle/AgriDirect.bundle.scp.css
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/AgriDirect.csproj.Up2Date
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/AgriDirect.dll
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/refint/AgriDirect.dll
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/AgriDirect.pdb
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/AgriDirect.genruntimeconfig.cache
+/home/tanmay/Harsh/AnnadataDigital/obj/Debug/net8.0/ref/AgriDirect.dll

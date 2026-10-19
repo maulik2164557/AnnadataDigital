@@ -13,6 +13,16 @@
     </div>
 </div>
 
+@if (Model.Status != "Active")
+{
+    <div class="box" style="margin-bottom: 15px; border: 1px solid #f59e0b; background: #fffbeb;">
+        <div style="font-weight: bold; color: #92400e; font-size: 15px;">⏳ Profile Verification Pending Admin Approval</div>
+        <p style="margin: 4px 0 0 0; color: #78350f; font-size: 13px;">
+            Your Farmer account has been submitted and is awaiting administrator verification. You will be able to add produce listings once the administrator reviews and approves your profile.
+        </p>
+    </div>
+}
+
 <!-- Farmer Profile Summary Box -->
 <div class="box">
     <div class="box-header">Farm &amp; Producer Profile</div>
@@ -21,6 +31,17 @@
             <p><strong>Farmer Name:</strong> @Model.FullName</p>
             <p><strong>Email Address:</strong> @Model.Email</p>
             <p><strong>Contact Phone:</strong> @Model.PhoneNumber</p>
+            <p>
+                <strong>UPI ID:</strong>
+                @if (!string.IsNullOrWhiteSpace(Model.UpiId))
+                {
+                    <code style="font-weight: bold;">@Model.UpiId</code>
+                }
+                else
+                {
+                    <span style="color: #b91c1c; font-weight: bold;">⚠️ Not added (Required to confirm orders)</span>
+                }
+            </p>
         </div>
         <div>
             <p><strong>Farm / Business:</strong> @(Model.FarmName ?? "Not specified")</p>

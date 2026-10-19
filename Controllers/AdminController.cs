@@ -44,6 +44,11 @@ namespace AgriDirect.Controllers
                 .Take(6)
                 .ToListAsync();
 
+            var pendingFarmersList = await _context.Users
+                .Where(u => u.Role == "Farmer" && u.Status == "PendingApproval")
+                .OrderByDescending(u => u.CreatedAt)
+                .ToListAsync();
+
             var viewModel = new AdminDashboardViewModel
             {
                 TotalUsers = totalUsers,
@@ -52,7 +57,8 @@ namespace AgriDirect.Controllers
                 TotalProducts = totalProducts,
                 PendingUserApprovals = pendingApprovals,
                 RecentUsers = recentUsers,
-                RecentProducts = recentProducts
+                RecentProducts = recentProducts,
+                PendingFarmers = pendingFarmersList
             };
 
             return View(viewModel);
@@ -111,6 +117,34 @@ namespace AgriDirect.Controllers
             );
 
             TempData["Success"] = $"User '{user.FullName}' status updated to {status}.";
+            return RedirectToAction(nameof(Users));
+        }
+
+        // POST: /Admin/UpdateUserRole
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateUserRole(int userId, string newRole)
+        {
+            if (newRole != "Consumer" && newRole != "Farmer" && newRole != "Admin")
+            {
+                TempData["Error"] = "Invalid role specified.";
+                return RedirectToAction(nameof(Users));
+            }
+
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null) return NotFound();
+
+            user.Role = newRole;
+            await _context.SaveChangesAsync();
+
+            await _automationService.SendNotificationAsync(
+                user.Id,
+                "Account Role Updated",
+                $"Your account role has been updated to '{newRole}' by an Administrator.",
+                "Account"
+            );
+
+            TempData["Success"] = $"User '{user.FullName}' role changed to '{newRole}'.";
             return RedirectToAction(nameof(Users));
         }
 

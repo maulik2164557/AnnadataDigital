@@ -35,6 +35,8 @@ namespace AgriDirect.Models.ViewModels
 
         public decimal UnitPrice { get; set; }
         public decimal Subtotal => Quantity * UnitPrice;
+
+        public string? BuyerUpiId { get; set; }
     }
 
     public class ReviewViewModel
@@ -60,7 +62,16 @@ namespace AgriDirect.Models.ViewModels
     public class OrderStatusUpdateViewModel
     {
         public int OrderId { get; set; }
-        public string NewStatus { get; set; } = "Accepted"; // Pending, Accepted, Packed, Shipped, Delivered, Cancelled
+        public string NewStatus { get; set; } = "Accepted"; // Pending, Accepted, Dispatched, Delivered, Cancelled
         public string? Notes { get; set; }
+
+        // Transporter Details (required when dispatching)
+        [Display(Name = "Transporter / Truck Driver Name")]
+        [StringLength(150)]
+        public string? TransporterName { get; set; }
+
+        [Display(Name = "Transporter Contact Number")]
+        [StringLength(50)]
+        public string? TransporterContact { get; set; }
     }
 }

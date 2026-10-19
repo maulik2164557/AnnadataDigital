@@ -1,17 +1,60 @@
+@using System.Security.Claims
 @{
     ViewData["Title"] = "Access Denied";
+    var isAuthenticated = User.Identity?.IsAuthenticated == true;
+    var userRole = User.FindFirst(ClaimTypes.Role)?.Value ?? "";
+    var userName = User.Identity?.Name ?? "";
 }
 
-<div style="max-width: 500px; margin: 4rem auto; text-align: center;">
-    <div class="card" style="padding: 3rem 2rem;">
-        <span style="font-size: 3.5rem;">🛑</span>
-        <h2 style="font-size: 1.5rem; font-weight: 800; color: #991b1b; margin: 1rem 0 0.5rem;">Access Denied</h2>
-        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-            You do not have the required permissions or role to view this resource.
-        </p>
-        <div style="display: flex; gap: 0.8rem; justify-content: center;">
-            <a asp-controller="Marketplace" asp-action="Index" class="btn btn-primary">Return to Marketplace</a>
-            <a asp-controller="Account" asp-action="Login" class="btn btn-outline">Switch Account</a>
-        </div>
+<div style="max-width: 520px; margin: 3rem auto; text-align: center;">
+    <div class="box" style="padding: 2.5rem 2rem;">
+        <span style="font-size: 3rem;">🛑</span>
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: #b91c1c; margin: 0.8rem 0 0.4rem;">Access Denied</h2>
+        
+        @if (isAuthenticated)
+        {
+            <p style="color: #334155; margin-bottom: 0.5rem; font-size: 14px;">
+                You are currently signed in as <strong>@userName</strong> (<span class="tag">@userRole</span>).
+            </p>
+            <p style="color: #64748b; margin-bottom: 1.5rem; font-size: 13px;">
+                Your account role does not have permission to access the requested resource.
+            </p>
+
+            <div style="display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.2rem;">
+                @if (userRole == "Admin")
+                {
+                    <a asp-controller="Admin" asp-action="Dashboard" class="btn btn-primary">Go to Admin Dashboard</a>
+                    <a asp-controller="Admin" asp-action="Users" class="btn">User Management</a>
+                }
+                else if (userRole == "Farmer")
+                {
+                    <a asp-controller="Account" asp-action="FarmerDashboard" class="btn btn-primary">Go to Farmer Dashboard</a>
+                }
+                else if (userRole == "Consumer")
+                {
+                    <a asp-controller="Account" asp-action="ConsumerDashboard" class="btn btn-primary">Go to Consumer Dashboard</a>
+                }
+                <a asp-controller="Marketplace" asp-action="Index" class="btn">Return to Marketplace</a>
+            </div>
+
+            <div style="border-top: 1px solid #e2e8f0; padding-top: 1rem; margin-top: 0.5rem;">
+                <form asp-controller="Account" asp-action="Logout" method="post" style="display: inline;">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-sm" style="color: #b91c1c; background: #fee2e2; border: 1px solid #fca5a5;">
+                        Sign Out &amp; Switch Account
+                    </button>
+                </form>
+            </div>
+        }
+        else
+        {
+            <p style="color: #64748b; margin-bottom: 1.5rem;">
+                You need to sign in with an authorized account to view this resource.
+            </p>
+            <div style="display: flex; gap: 0.8rem; justify-content: center;">
+                <a asp-controller="Account" asp-action="Login" class="btn btn-primary">Sign In</a>
+                <a asp-controller="Marketplace" asp-action="Index" class="btn">Return to Marketplace</a>
+            </div>
+        }
     </div>
 </div>

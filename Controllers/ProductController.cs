@@ -25,10 +25,19 @@ namespace AgriDirect.Controllers
         }
 
         // GET: /Product/MyProducts (Farmer only)
-        [Authorize(Roles = "Farmer")]
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> MyProducts()
         {
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("Products", "Admin");
+            }
+            if (!User.IsInRole("Farmer"))
+            {
+                return Forbid();
+            }
+
             var farmerId = GetCurrentUserId();
             var products = await _context.Products
                 .Where(p => p.FarmerId == farmerId && p.Status != "Removed")
@@ -39,10 +48,27 @@ namespace AgriDirect.Controllers
         }
 
         // GET: /Product/Create (Farmer only)
-        [Authorize(Roles = "Farmer")]
+        [Authorize]
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("Products", "Admin");
+            }
+            if (!User.IsInRole("Farmer"))
+            {
+                return Forbid();
+            }
+
+            var farmerId = GetCurrentUserId();
+            var farmer = await _context.Users.FindAsync(farmerId);
+            if (farmer == null || farmer.Status != "Active")
+            {
+                TempData["Error"] = "Your farmer profile is currently pending Admin approval. You can add produce once your profile is approved.";
+                return RedirectToAction("FarmerDashboard", "Account");
+            }
+
             return View(new ProductFormViewModel());
         }
 
@@ -52,12 +78,19 @@ namespace AgriDirect.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProductFormViewModel model)
         {
+            var farmerId = GetCurrentUserId();
+            var farmer = await _context.Users.FindAsync(farmerId);
+            if (farmer == null || farmer.Status != "Active")
+            {
+                TempData["Error"] = "Your farmer profile is currently pending Admin approval. You can add produce once your profile is approved.";
+                return RedirectToAction("FarmerDashboard", "Account");
+            }
+
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            var farmerId = GetCurrentUserId();
             string imageUrl = "/images/default-product.svg";
             var additionalImagesList = new List<string>();
 
@@ -101,6 +134,14 @@ namespace AgriDirect.Controllers
                 imageUrl = additionalImagesList[0];
             }
 
+            // Automatically set measurement unit based on category: Grains -> quintal, Vegetables -> kg
+            string productUnit = model.Category switch
+            {
+                "Grains" => "quintal",
+                "Vegetables" => "kg",
+                _ => string.IsNullOrWhiteSpace(model.Unit) ? "kg" : model.Unit
+            };
+
             var product = new Product
             {
                 FarmerId = farmerId,
@@ -108,7 +149,7 @@ namespace AgriDirect.Controllers
                 Category = model.Category,
                 Price = model.Price,
                 QuantityInStock = model.QuantityInStock,
-                Unit = model.Unit,
+                Unit = productUnit,
                 HarvestDate = model.HarvestDate,
                 Description = model.Description?.Trim() ?? string.Empty,
                 ImageUrl = imageUrl,
@@ -215,11 +256,18 @@ namespace AgriDirect.Controllers
                 product.AdditionalImageUrls = string.Join(";", additionalImagesList);
             }
 
+            string productUnit = model.Category switch
+            {
+                "Grains" => "quintal",
+                "Vegetables" => "kg",
+                _ => string.IsNullOrWhiteSpace(model.Unit) ? product.Unit : model.Unit
+            };
+
             product.Name = model.Name.Trim();
             product.Category = model.Category;
             product.Price = model.Price;
             product.QuantityInStock = model.QuantityInStock;
-            product.Unit = model.Unit;
+            product.Unit = productUnit;
             product.HarvestDate = model.HarvestDate;
             product.Description = model.Description?.Trim() ?? string.Empty;
 

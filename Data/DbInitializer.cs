@@ -23,87 +23,168 @@ namespace AgriDirect.Data
                 // Column already exists
             }
 
-            if (context.Users.Any())
+            try
             {
-                return; // DB has already been seeded
+                await context.Database.ExecuteSqlRawAsync("ALTER TABLE Users ADD COLUMN UpiId TEXT NULL;");
+            }
+            catch
+            {
+                // Column already exists
             }
 
-            // 1. Seed Users
-            var adminUser = new User
-            {
-                FullName = "Administrator",
-                Email = "admin@agridirect.com",
-                PasswordHash = passwordHasher.HashPassword("Admin@123"),
-                PhoneNumber = "+91 98765 43210",
-                Address = "AgriDirect Tech Park, Sector 44, Bengaluru, KA",
-                Role = "Admin",
-                ProfilePictureUrl = "/images/admin-avatar.svg",
-                Status = "Active",
-                CreatedAt = DateTime.UtcNow.AddMonths(-3)
-            };
+            try { await context.Database.ExecuteSqlRawAsync("ALTER TABLE Orders ADD COLUMN TransporterName TEXT NULL;"); } catch { }
+            try { await context.Database.ExecuteSqlRawAsync("ALTER TABLE Orders ADD COLUMN TransporterContact TEXT NULL;"); } catch { }
+            try { await context.Database.ExecuteSqlRawAsync("ALTER TABLE Orders ADD COLUMN ConfirmedAt TEXT NULL;"); } catch { }
+            try { await context.Database.ExecuteSqlRawAsync("ALTER TABLE Orders ADD COLUMN DispatchedAt TEXT NULL;"); } catch { }
+            try { await context.Database.ExecuteSqlRawAsync("ALTER TABLE Orders ADD COLUMN DeliveredAt TEXT NULL;"); } catch { }
 
-            var farmerRajesh = new User
+            // 1. Ensure essential system users (Admin, Farmer, Consumer) always exist with valid credentials
+            var adminUser = await context.Users.FirstOrDefaultAsync(u => u.Email.ToLower() == "admin@agridirect.com");
+            if (adminUser == null)
             {
-                FullName = "Rajesh Sharma",
-                Email = "farmer@agridirect.com",
-                PasswordHash = passwordHasher.HashPassword("Farmer@123"),
-                PhoneNumber = "+91 94123 45678",
-                Address = "Village Khed, Pune Rural, Maharashtra",
-                Role = "Farmer",
-                FarmName = "Green Valley Organic Farm",
-                FarmLocation = "Pune, Maharashtra",
-                ProfilePictureUrl = "/images/farmer-rajesh.svg",
-                Status = "Active",
-                AverageRating = 4.9,
-                TotalRatingsCount = 18,
-                CreatedAt = DateTime.UtcNow.AddMonths(-2)
-            };
-
-            var farmerAnita = new User
+                adminUser = new User
+                {
+                    FullName = "Administrator",
+                    Email = "admin@agridirect.com",
+                    PasswordHash = passwordHasher.HashPassword("Admin@123"),
+                    PhoneNumber = "+91 98765 43210",
+                    Address = "AgriDirect Tech Park, Sector 44, Bengaluru, KA",
+                    Role = "Admin",
+                    ProfilePictureUrl = "/images/admin-avatar.svg",
+                    Status = "Active",
+                    CreatedAt = DateTime.UtcNow.AddMonths(-3)
+                };
+                context.Users.Add(adminUser);
+            }
+            else
             {
-                FullName = "Anita Patel",
-                Email = "anita@agridirect.com",
-                PasswordHash = passwordHasher.HashPassword("Farmer@123"),
-                PhoneNumber = "+91 98220 11223",
-                Address = "Ratnagiri Coastal Farms, Maharashtra",
-                Role = "Farmer",
-                FarmName = "Sunburst Agro Orchards",
-                FarmLocation = "Ratnagiri, Maharashtra",
-                ProfilePictureUrl = "/images/farmer-anita.svg",
-                Status = "Active",
-                AverageRating = 4.8,
-                TotalRatingsCount = 12,
-                CreatedAt = DateTime.UtcNow.AddMonths(-2)
-            };
+                adminUser.Role = "Admin";
+                adminUser.Status = "Active";
+                adminUser.PasswordHash = passwordHasher.HashPassword("Admin@123");
+            }
 
-            var buyerRahul = new User
+            var harshUser = await context.Users.FirstOrDefaultAsync(u => u.Email.ToLower() == "harshrathva14@gmail.com");
+            if (harshUser != null)
             {
-                FullName = "Rahul Verma",
-                Email = "buyer@agridirect.com",
-                PasswordHash = passwordHasher.HashPassword("Buyer@123"),
-                PhoneNumber = "+91 99887 76655",
-                Address = "Flat 402, Sunshine Apartments, Kothrud, Pune, MH",
-                Role = "Consumer",
-                ProfilePictureUrl = "/images/buyer-rahul.svg",
-                Status = "Active",
-                CreatedAt = DateTime.UtcNow.AddMonths(-1)
-            };
+                harshUser.Role = "Admin";
+                harshUser.Status = "Active";
+            }
 
-            var buyerPriya = new User
+            var farmerRajesh = await context.Users.FirstOrDefaultAsync(u => u.Email.ToLower() == "farmer@agridirect.com");
+            if (farmerRajesh == null)
             {
-                FullName = "Priya Desai",
-                Email = "priya@agridirect.com",
-                PasswordHash = passwordHasher.HashPassword("Buyer@123"),
-                PhoneNumber = "+91 97654 32109",
-                Address = "Villa 12, Green Glen Layout, Bellandur, Bengaluru, KA",
-                Role = "Consumer",
-                ProfilePictureUrl = "/images/buyer-priya.svg",
-                Status = "Active",
-                CreatedAt = DateTime.UtcNow.AddMonths(-1)
-            };
+                farmerRajesh = new User
+                {
+                    FullName = "Rajesh Sharma",
+                    Email = "farmer@agridirect.com",
+                    PasswordHash = passwordHasher.HashPassword("Farmer@123"),
+                    PhoneNumber = "+91 94123 45678",
+                    Address = "Village Khed, Pune Rural, Maharashtra",
+                    Role = "Farmer",
+                    FarmName = "Green Valley Organic Farm",
+                    FarmLocation = "Pune, Maharashtra",
+                    ProfilePictureUrl = "/images/farmer-rajesh.svg",
+                    Status = "Active",
+                    AverageRating = 4.9,
+                    TotalRatingsCount = 18,
+                    CreatedAt = DateTime.UtcNow.AddMonths(-2)
+                };
+                context.Users.Add(farmerRajesh);
+            }
+            else
+            {
+                farmerRajesh.Role = "Farmer";
+                farmerRajesh.Status = "Active";
+                farmerRajesh.PasswordHash = passwordHasher.HashPassword("Farmer@123");
+            }
 
-            context.Users.AddRange(adminUser, farmerRajesh, farmerAnita, buyerRahul, buyerPriya);
+            var farmerAnita = await context.Users.FirstOrDefaultAsync(u => u.Email.ToLower() == "anita@agridirect.com");
+            if (farmerAnita == null)
+            {
+                farmerAnita = new User
+                {
+                    FullName = "Anita Patel",
+                    Email = "anita@agridirect.com",
+                    PasswordHash = passwordHasher.HashPassword("Farmer@123"),
+                    PhoneNumber = "+91 98220 11223",
+                    Address = "Ratnagiri Coastal Farms, Maharashtra",
+                    Role = "Farmer",
+                    FarmName = "Sunburst Agro Orchards",
+                    FarmLocation = "Ratnagiri, Maharashtra",
+                    ProfilePictureUrl = "/images/farmer-anita.svg",
+                    Status = "Active",
+                    AverageRating = 4.8,
+                    TotalRatingsCount = 12,
+                    CreatedAt = DateTime.UtcNow.AddMonths(-2)
+                };
+                context.Users.Add(farmerAnita);
+            }
+
+            var buyerRahul = await context.Users.FirstOrDefaultAsync(u => u.Email.ToLower() == "buyer@agridirect.com");
+            if (buyerRahul == null)
+            {
+                buyerRahul = new User
+                {
+                    FullName = "Rahul Verma",
+                    Email = "buyer@agridirect.com",
+                    PasswordHash = passwordHasher.HashPassword("Buyer@123"),
+                    PhoneNumber = "+91 99887 76655",
+                    Address = "Flat 402, Sunshine Apartments, Kothrud, Pune, MH",
+                    Role = "Consumer",
+                    ProfilePictureUrl = "/images/buyer-rahul.svg",
+                    Status = "Active",
+                    CreatedAt = DateTime.UtcNow.AddMonths(-1)
+                };
+                context.Users.Add(buyerRahul);
+            }
+            else
+            {
+                buyerRahul.Role = "Consumer";
+                buyerRahul.Status = "Active";
+                buyerRahul.PasswordHash = passwordHasher.HashPassword("Buyer@123");
+            }
+
+            var buyerPriya = await context.Users.FirstOrDefaultAsync(u => u.Email.ToLower() == "priya@agridirect.com");
+            if (buyerPriya == null)
+            {
+                buyerPriya = new User
+                {
+                    FullName = "Priya Desai",
+                    Email = "priya@agridirect.com",
+                    PasswordHash = passwordHasher.HashPassword("Buyer@123"),
+                    PhoneNumber = "+91 97654 32109",
+                    Address = "Villa 12, Green Glen Layout, Bellandur, Bengaluru, KA",
+                    Role = "Consumer",
+                    ProfilePictureUrl = "/images/buyer-priya.svg",
+                    Status = "Active",
+                    CreatedAt = DateTime.UtcNow.AddMonths(-1)
+                };
+                context.Users.Add(buyerPriya);
+            }
+
+            if (farmerRajesh != null && string.IsNullOrWhiteSpace(farmerRajesh.UpiId))
+            {
+                farmerRajesh.UpiId = "rajesh.farm@oksbi";
+            }
+            if (farmerAnita != null && string.IsNullOrWhiteSpace(farmerAnita.UpiId))
+            {
+                farmerAnita.UpiId = "anita.agro@okaxis";
+            }
+            if (buyerRahul != null && string.IsNullOrWhiteSpace(buyerRahul.UpiId))
+            {
+                buyerRahul.UpiId = "rahul.verma@okhdfcbank";
+            }
+            if (buyerPriya != null && string.IsNullOrWhiteSpace(buyerPriya.UpiId))
+            {
+                buyerPriya.UpiId = "priya.desai@okicici";
+            }
+
             await context.SaveChangesAsync();
+
+            if (context.Products.Any())
+            {
+                return; // Products and catalog have already been seeded
+            }
 
             // 2. Seed Products
             var products = new List<Product>

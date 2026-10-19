@@ -29,7 +29,7 @@ namespace AgriDirect.Models.ViewModels
 
         [Required(ErrorMessage = "Unit is required")]
         [Display(Name = "Unit of Measure")]
-        public string Unit { get; set; } = "kg"; // kg, quintal, crate, box, liter
+        public string Unit { get; set; } = "kg"; // kg, quintal, crate, box, liter, dozen
 
         [Required(ErrorMessage = "Harvest date is required")]
         [DataType(DataType.Date)]

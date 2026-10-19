@@ -127,7 +127,13 @@ else
                     <a asp-controller="Product" asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm" style="flex: 1; text-align: center;">
                         Details
                     </a>
-                    @if (item.QuantityInStock > 0 && !(User.IsInRole("Farmer") && item.FarmerId == currentUserId))
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-controller="Admin" asp-action="Products" class="btn btn-sm btn-outline" style="flex: 1; text-align: center;">
+                            Moderate
+                        </a>
+                    }
+                    else if (item.QuantityInStock > 0 && !(User.IsInRole("Farmer") && item.FarmerId == currentUserId))
                     {
                         <a asp-controller="Order" asp-action="Checkout" asp-route-productId="@item.Id" class="btn btn-sm btn-primary" style="flex: 1; text-align: center;">
                             Order

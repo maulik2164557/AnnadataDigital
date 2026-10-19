@@ -64,11 +64,10 @@ namespace AgriDirect.Controllers
                 return View(model);
             }
 
-            var defaultAvatar = model.Role == "Farmer" ? "/images/farmer-rajesh.svg" : (model.Role == "Admin" ? "/images/admin-avatar.svg" : "/images/buyer-rahul.svg");
+            var defaultAvatar = model.Role == "Farmer" ? "/images/farmer-rajesh.svg" : "/images/buyer-rahul.svg";
 
-            string assignedRole = "Consumer";
-            if (model.Role == "Farmer") assignedRole = "Farmer";
-            else if (model.Role == "Admin") assignedRole = "Admin";
+            string assignedRole = (model.Role == "Farmer") ? "Farmer" : "Consumer";
+            string initialStatus = (assignedRole == "Farmer") ? "PendingApproval" : "Active";
 
             var user = new User
             {
@@ -80,8 +79,9 @@ namespace AgriDirect.Controllers
                 Role = assignedRole,
                 FarmName = assignedRole == "Farmer" ? model.FarmName?.Trim() : null,
                 FarmLocation = assignedRole == "Farmer" ? model.FarmLocation?.Trim() : null,
+                UpiId = string.IsNullOrWhiteSpace(model.UpiId) ? null : model.UpiId.Trim(),
                 ProfilePictureUrl = defaultAvatar,
-                Status = "Active",
+                Status = initialStatus,
                 CreatedAt = DateTime.UtcNow
             };
 
@@ -92,30 +92,58 @@ namespace AgriDirect.Controllers
             string targetUrl = assignedRole switch
             {
                 "Admin" => "/Admin/Dashboard",
-                "Farmer" => "/Product/MyProducts",
+                "Farmer" => "/Account/FarmerDashboard",
                 _ => "/Marketplace"
             };
 
-            await _automationService.SendNotificationAsync(
-                user.Id,
-                "🌾 Welcome to AgriDirect!",
-                $"Hello {user.FullName}, your {user.Role} account has been created successfully.",
-                "Account",
-                targetUrl
-            );
+            if (assignedRole == "Farmer")
+            {
+                await _automationService.SendNotificationAsync(
+                    user.Id,
+                    "🌾 Registration Received - Pending Approval",
+                    $"Hello {user.FullName}, your Farmer account registration has been submitted. You can list produce once your profile is approved by Admin.",
+                    "Account",
+                    "/Account/FarmerDashboard"
+                );
+
+                // Send notification to all Administrators for new farmer approval
+                var adminUsers = await _context.Users.Where(u => u.Role == "Admin").ToListAsync();
+                foreach (var admin in adminUsers)
+                {
+                    await _automationService.SendNotificationAsync(
+                        admin.Id,
+                        "🔔 New Farmer Registration Pending Approval",
+                        $"Farmer {user.FullName} ({user.Email}) has signed up and is waiting for profile approval.",
+                        "Account",
+                        "/Admin/Dashboard"
+                    );
+                }
+            }
+            else
+            {
+                await _automationService.SendNotificationAsync(
+                    user.Id,
+                    "🌾 Welcome to AgriDirect!",
+                    $"Hello {user.FullName}, your {user.Role} account has been created successfully.",
+                    "Account",
+                    targetUrl
+                );
+            }
 
             // Sign in automatically
             await SignInUserAsync(user, isPersistent: false);
+
+            if (assignedRole == "Farmer")
+            {
+                TempData["Info"] = $"Welcome {user.FullName}! Your Farmer account is submitted for Admin approval. You will be able to add produce once approved.";
+                return RedirectToAction("FarmerDashboard", "Account");
+            }
 
             TempData["Success"] = $"Welcome to AgriDirect, {user.FullName}! Your {user.Role} account has been created.";
 
             if (user.Role == "Admin")
             {
                 return RedirectToAction("Dashboard", "Admin");
-            }
-            else if (user.Role == "Farmer")
-            {
-                return RedirectToAction("FarmerDashboard", "Account");
             }
             return RedirectToAction("ConsumerDashboard", "Account");
         }
@@ -141,8 +169,17 @@ namespace AgriDirect.Controllers
                 return View(model);
             }
 
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email.ToLower() == model.Email.ToLower());
-            if (user == null || !_passwordHasher.VerifyPassword(model.Password, user.PasswordHash))
+            var inputEmail = (model.Email ?? string.Empty).Trim().ToLower();
+            var inputPassword = (model.Password ?? string.Empty).Trim();
+
+            // Support logging in with 'admin' or 'administrator' directly
+            if (inputEmail == "admin" || inputEmail == "administrator")
+            {
+                inputEmail = "admin@agridirect.com";
+            }
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email.ToLower() == inputEmail);
+            if (user == null || !_passwordHasher.VerifyPassword(inputPassword, user.PasswordHash))
             {
                 ModelState.AddModelError(string.Empty, "Invalid email address or password.");
                 return View(model);
@@ -164,9 +201,55 @@ namespace AgriDirect.Controllers
 
             TempData["Success"] = $"Welcome back, {user.FullName}!";
 
+            // Validate ReturnUrl against user role to prevent Access Denied loops
             if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
             {
-                return Redirect(model.ReturnUrl);
+                var lowerReturn = model.ReturnUrl.ToLowerInvariant();
+                bool isDeniedUrl = lowerReturn.Contains("/account/accessdenied");
+
+                if (!isDeniedUrl)
+                {
+                    if (user.Role == "Admin")
+                    {
+                        // Redirect Admin only to Admin-safe URLs, avoiding role-restricted Farmer/Consumer views
+                        bool isRestrictedToOthers = lowerReturn.StartsWith("/account/farmerdashboard") ||
+                                                    lowerReturn.StartsWith("/account/consumerdashboard") ||
+                                                    lowerReturn.StartsWith("/order/farmerorders") ||
+                                                    lowerReturn.StartsWith("/order/checkout") ||
+                                                    lowerReturn.StartsWith("/order/history") ||
+                                                    lowerReturn.StartsWith("/product/create") ||
+                                                    lowerReturn.StartsWith("/product/myproducts") ||
+                                                    lowerReturn.StartsWith("/review/");
+                        if (!isRestrictedToOthers)
+                        {
+                            return Redirect(model.ReturnUrl);
+                        }
+                    }
+                    else if (user.Role == "Farmer")
+                    {
+                        bool isRestrictedToOthers = lowerReturn.StartsWith("/admin") ||
+                                                    lowerReturn.StartsWith("/account/consumerdashboard") ||
+                                                    lowerReturn.StartsWith("/order/checkout") ||
+                                                    lowerReturn.StartsWith("/order/history") ||
+                                                    lowerReturn.StartsWith("/review/");
+                        if (!isRestrictedToOthers)
+                        {
+                            return Redirect(model.ReturnUrl);
+                        }
+                    }
+                    else if (user.Role == "Consumer")
+                    {
+                        bool isRestrictedToOthers = lowerReturn.StartsWith("/admin") ||
+                                                    lowerReturn.StartsWith("/account/farmerdashboard") ||
+                                                    lowerReturn.StartsWith("/order/farmerorders") ||
+                                                    lowerReturn.StartsWith("/product/create") ||
+                                                    lowerReturn.StartsWith("/product/myproducts");
+                        if (!isRestrictedToOthers)
+                        {
+                            return Redirect(model.ReturnUrl);
+                        }
+                    }
+                }
             }
 
             if (user.Role == "Admin")
@@ -181,10 +264,19 @@ namespace AgriDirect.Controllers
         }
 
         // GET: /Account/FarmerDashboard
-        [Authorize(Roles = "Farmer")]
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> FarmerDashboard()
         {
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("Dashboard", "Admin");
+            }
+            if (User.IsInRole("Consumer"))
+            {
+                return RedirectToAction("ConsumerDashboard", "Account");
+            }
+
             var userId = GetCurrentUserId();
             var farmer = await _context.Users
                 .Include(u => u.Products)
@@ -199,10 +291,19 @@ namespace AgriDirect.Controllers
         }
 
         // GET: /Account/ConsumerDashboard
-        [Authorize(Roles = "Consumer")]
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> ConsumerDashboard()
         {
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("Dashboard", "Admin");
+            }
+            if (User.IsInRole("Farmer"))
+            {
+                return RedirectToAction("FarmerDashboard", "Account");
+            }
+
             var userId = GetCurrentUserId();
             var consumer = await _context.Users
                 .Include(u => u.BuyerOrders)
@@ -218,11 +319,13 @@ namespace AgriDirect.Controllers
         // GET: /Account/Profile
         [Authorize]
         [HttpGet]
-        public async Task<IActionResult> Profile()
+        public async Task<IActionResult> Profile(string? returnUrl = null)
         {
             var userId = GetCurrentUserId();
             var user = await _context.Users.FindAsync(userId);
             if (user == null) return NotFound();
+
+            ViewBag.ReturnUrl = returnUrl;
 
             var model = new ProfileViewModel
             {
@@ -235,6 +338,7 @@ namespace AgriDirect.Controllers
                 ProfilePictureUrl = user.ProfilePictureUrl,
                 FarmName = user.FarmName,
                 FarmLocation = user.FarmLocation,
+                UpiId = user.UpiId,
                 AverageRating = user.AverageRating,
                 TotalRatingsCount = user.TotalRatingsCount,
                 Status = user.Status
@@ -247,7 +351,7 @@ namespace AgriDirect.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Profile(ProfileViewModel model, IFormFile? profilePicture)
+        public async Task<IActionResult> Profile(ProfileViewModel model, IFormFile? profilePicture, string? returnUrl = null)
         {
             var userId = GetCurrentUserId();
             var user = await _context.Users.FindAsync(userId);
@@ -255,6 +359,7 @@ namespace AgriDirect.Controllers
 
             if (!ModelState.IsValid)
             {
+                ViewBag.ReturnUrl = returnUrl;
                 model.Email = user.Email;
                 model.Role = user.Role;
                 model.ProfilePictureUrl = user.ProfilePictureUrl;
@@ -266,6 +371,7 @@ namespace AgriDirect.Controllers
             user.FullName = model.FullName.Trim();
             user.PhoneNumber = model.PhoneNumber.Trim();
             user.Address = model.Address.Trim();
+            user.UpiId = string.IsNullOrWhiteSpace(model.UpiId) ? null : model.UpiId.Trim();
 
             if (user.Role == "Farmer")
             {
@@ -295,6 +401,12 @@ namespace AgriDirect.Controllers
             await SignInUserAsync(user, isPersistent: false);
 
             TempData["Success"] = "Your profile has been updated successfully!";
+
+            if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+
             return RedirectToAction(nameof(Profile));
         }
 

@@ -1,0 +1,15 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: annadata_digital
+    restart: unless-stopped
+    ports:
+      - "5000:8080"
+    volumes:
+      - ./agridirect.db:/app/agridirect.db
+      - ./wwwroot/uploads:/app/wwwroot/uploads
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080

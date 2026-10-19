@@ -13,6 +13,7 @@ namespace AgriDirect.Models.ViewModels
 
         public List<User> RecentUsers { get; set; } = new List<User>();
         public List<Product> RecentProducts { get; set; } = new List<Product>();
+        public List<User> PendingFarmers { get; set; } = new List<User>();
     }
 
     public class ReportsViewModel

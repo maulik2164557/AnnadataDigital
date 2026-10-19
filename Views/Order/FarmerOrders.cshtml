@@ -7,7 +7,6 @@
     <a asp-controller="Account" asp-action="FarmerDashboard">&larr; Back to Dashboard</a>
 </div>
 
-<<<<<<< HEAD
 <h1>Farm Orders &amp; Fulfillment</h1>
 
 <div class="box">
@@ -61,27 +60,15 @@
                             <span class="tag">@order.PaymentStatus</span>
                         </td>
                         <td>
-                            <a asp-controller="Order" asp-action="Details" asp-route-id="@order.Id" class="btn btn-sm btn-primary">Fulfill / Update Status</a>
+                            <a asp-controller="Order" asp-action="Details" asp-route-id="@order.Id" class="btn btn-sm btn-primary">Fulfill / Details</a>
+                            @if (order.OrderStatus == "Dispatched" || order.OrderStatus == "Delivered")
+                            {
+                                <a asp-controller="Order" asp-action="Invoice" asp-route-id="@order.Id" class="btn btn-sm" target="_blank" style="margin-top: 3px; display: inline-block;">Invoice</a>
+                            }
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
     }
-=======
-<h1>Farm Orders Management</h1>
-
-<div class="box">
-    <div class="box-header">Order Fulfillment Pipeline (Pending Milestone 2)</div>
-    <p style="color: #444; font-size: 13px; line-height: 1.5; margin-bottom: 10px;">
-        Order fulfillment tracking (Pending, Packed, Shipped, Delivered) and logistics status updates will be implemented in Project Milestone 2.
-    </p>
-    <div style="background: #f5f5f5; border: 1px dashed #999; padding: 10px; font-size: 13px; color: #555; margin-bottom: 15px;">
-        &bull; <strong>Current Phase Deliverable:</strong> Farmer registration, profile configuration, adding new produce to the marketplace, and updating existing produce listings.
-    </div>
-    <div style="display: flex; gap: 10px;">
-        <a asp-controller="Product" asp-action="MyProducts" class="btn btn-primary">Manage My Products</a>
-        <a asp-controller="Product" asp-action="Create" class="btn">+ Add New Produce</a>
-    </div>
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 </div>

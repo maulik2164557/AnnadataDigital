@@ -9,8 +9,9 @@
     <div class="box">
         <div class="box-header">Profile Details (Role: @Model.Role)</div>
 
-        <form asp-controller="Account" asp-action="Profile" method="post">
+        <form asp-controller="Account" asp-action="Profile" asp-route-returnUrl="@ViewBag.ReturnUrl" method="post">
             @Html.AntiForgeryToken()
+            <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="Email" />
             <input type="hidden" asp-for="Role" />
@@ -38,6 +39,12 @@
                 <span asp-validation-for="Address" class="text-error"></span>
             </div>
 
+            <div class="form-group">
+                <label asp-for="UpiId" class="form-label">UPI ID:</label>
+                <input asp-for="UpiId" class="form-control" placeholder="e.g. name@okhdfcbank" />
+                <span asp-validation-for="UpiId" class="text-error"></span>
+            </div>
+
             @if (Model.Role == "Farmer")
             {
                 <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 12px; background: #fafafa;">
@@ -63,7 +70,7 @@
     @if (Model.Role != "Admin")
     {
         <div class="box" style="margin-top: 15px; border-color: #999;">
-            <div class="box-header">Account Management (R.7.4)</div>
+            <div class="box-header">Account Management </div>
             <p style="color: #666; font-size: 13px;">Manage your active account status or request account deactivation/deletion.</p>
             <div style="display: flex; gap: 10px; margin-top: 10px;">
                 <form asp-controller="Account" asp-action="Deactivate" method="post" onsubmit="return confirm('Are you sure you want to deactivate your account?');">

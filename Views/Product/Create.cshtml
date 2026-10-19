@@ -23,32 +23,37 @@
 
             <div class="form-group">
                 <label asp-for="Category" class="form-label">Category:</label>
-                <select asp-for="Category" class="form-select">
+                <select asp-for="Category" class="form-select" id="productCategory" onchange="syncCategoryUnit()">
                     <option value="Vegetables">Vegetables</option>
-                    <option value="Fruits">Fruits</option>
                     <option value="Grains">Grains</option>
+                    <option value="Fruits">Fruits</option>
                     <option value="Dairy">Dairy</option>
                 </select>
                 <span asp-validation-for="Category" class="text-error"></span>
+                <small id="categoryUnitNote" style="color: #1b5e20; font-size: 12px; display: block; margin-top: 4px;">
+                    ℹ️ For Vegetables, quantity and price are calculated in <strong>kg</strong>.
+                </small>
             </div>
 
             <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
                 <div class="form-group">
-                    <label asp-for="Price" class="form-label">Price (₹):</label>
+                    <label asp-for="Price" class="form-label" id="priceLabel">Price (₹ / kg):</label>
                     <input asp-for="Price" class="form-control" type="number" step="0.01" />
                     <span asp-validation-for="Price" class="text-error"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="QuantityInStock" class="form-label">Stock Quantity:</label>
-                    <input asp-for="QuantityInStock" class="form-control" type="number" step="1" />
+                    <label asp-for="QuantityInStock" class="form-label" id="stockLabel">Stock Quantity (kg):</label>
+                    <input asp-for="QuantityInStock" class="form-control" type="number" step="0.01" />
                     <span asp-validation-for="QuantityInStock" class="text-error"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Unit" class="form-label">Unit:</label>
-                    <select asp-for="Unit" class="form-select">
+                    <label asp-for="Unit" class="form-label">Unit of Measure:</label>
+                    <select asp-for="Unit" class="form-select" id="productUnit">
                         <option value="kg">kg</option>
+                        <option value="quintal">quintal</option>
+                        <option value="dozen">dozen</option>
                         <option value="box">box</option>
                         <option value="liter">liter</option>
                     </select>
@@ -86,3 +91,32 @@
         </form>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        function syncCategoryUnit() {
+            var cat = document.getElementById('productCategory').value;
+            var unitSelect = document.getElementById('productUnit');
+            var priceLabel = document.getElementById('priceLabel');
+            var stockLabel = document.getElementById('stockLabel');
+            var note = document.getElementById('categoryUnitNote');
+
+            if (cat === 'Grains') {
+                unitSelect.value = 'quintal';
+                priceLabel.innerText = 'Price (₹ / quintal):';
+                stockLabel.innerText = 'Stock Quantity (quintals):';
+                note.innerHTML = '🌾 For Grains, quantity and price calculations are in <strong>quintals</strong> (1 quintal = 100 kg).';
+            } else if (cat === 'Vegetables') {
+                unitSelect.value = 'kg';
+                priceLabel.innerText = 'Price (₹ / kg):';
+                stockLabel.innerText = 'Stock Quantity (kg):';
+                note.innerHTML = '🥬 For Vegetables, quantity and price calculations are in <strong>kg</strong>.';
+            } else {
+                note.innerHTML = 'ℹ️ Default measurement unit for ' + cat + ' is ' + unitSelect.value + '.';
+                priceLabel.innerText = 'Price (₹ / ' + unitSelect.value + '):';
+                stockLabel.innerText = 'Stock Quantity (' + unitSelect.value + '):';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', syncCategoryUnit);
+    </script>
+}

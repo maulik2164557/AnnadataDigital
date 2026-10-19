@@ -40,6 +40,9 @@ namespace AgriDirect.Models
         [MaxLength(200)]
         public string? FarmLocation { get; set; }
 
+        [MaxLength(100)]
+        public string? UpiId { get; set; }
+
         public double AverageRating { get; set; } = 5.0;
         public int TotalRatingsCount { get; set; } = 0;
 

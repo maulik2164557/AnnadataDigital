@@ -24,6 +24,17 @@
         </div>
         <div>
             <p><strong>Delivery Address:</strong> @(string.IsNullOrEmpty(Model.Address) ? "No address saved" : Model.Address)</p>
+            <p>
+                <strong>UPI ID:</strong>
+                @if (!string.IsNullOrWhiteSpace(Model.UpiId))
+                {
+                    <code style="font-weight: bold;">@Model.UpiId</code>
+                }
+                else
+                {
+                    <span style="color: #b91c1c; font-weight: bold;">⚠️ Not added yet (Required to place orders)</span>
+                }
+            </p>
             <p><strong>Account Role:</strong> <span class="tag">@Model.Role</span></p>
             <p><strong>Account Status:</strong> <span class="tag">@Model.Status</span></p>
         </div>

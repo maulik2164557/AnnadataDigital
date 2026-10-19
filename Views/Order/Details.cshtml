@@ -7,40 +7,85 @@
     if (uidClaim != null) int.TryParse(uidClaim.Value, out currentUserId);
 
     bool isFarmer = (Model.FarmerId == currentUserId);
-<<<<<<< HEAD
     bool isBuyer = (Model.BuyerId == currentUserId);
-=======
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
     bool isAdmin = User.IsInRole("Admin");
 }
 
-<div style="margin-bottom: 10px;">
-<<<<<<< HEAD
-    @if (isFarmer)
+<div style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+    <div>
+        @if (isFarmer)
+        {
+            <a asp-controller="Order" asp-action="FarmerOrders">&larr; Back to Farm Orders</a>
+        }
+        else if (isAdmin)
+        {
+            <a asp-controller="Admin" asp-action="Orders">&larr; Back to All Orders</a>
+        }
+        else
+        {
+            <a asp-controller="Order" asp-action="History">&larr; Back to Order History</a>
+        }
+    </div>
+    @if (Model.OrderStatus == "Dispatched" || Model.OrderStatus == "Delivered")
     {
-        <a asp-controller="Order" asp-action="FarmerOrders">&larr; Back to Farm Orders</a>
+        <div>
+            <a asp-controller="Order" asp-action="Invoice" asp-route-id="@Model.Id" class="btn btn-sm btn-primary" target="_blank" style="background: #15803d; border-color: #15803d; color: #fff; font-weight: bold;">
+                📄 Download / View Invoice Bill
+            </a>
+        </div>
     }
-    else if (isAdmin)
-    {
-        <a asp-controller="Admin" asp-action="Orders">&larr; Back to All Orders</a>
-    }
-    else
-    {
-        <a asp-controller="Order" asp-action="History">&larr; Back to Order History</a>
-    }
-=======
-    <a href="javascript:history.back()">&larr; Back</a>
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 </div>
 
 <h1>Order #@Model.OrderNumber</h1>
 
-<<<<<<< HEAD
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
-    <!-- Order Summary Box -->
-=======
-<div style="max-width: 650px; margin-top: 15px;">
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
+<!-- Order Workflow Status Banner -->
+<div class="box" style="margin-top: 10px; margin-bottom: 15px; background: #f8fafc; border: 1px solid #cbd5e1;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <div>
+            <strong>Status:</strong>
+            @if (Model.OrderStatus == "Pending")
+            {
+                <span class="tag" style="background: #fef3c7; color: #92400e; font-weight: bold;">⏳ Pending Farmer Confirmation</span>
+            }
+            else if (Model.OrderStatus == "Accepted")
+            {
+                <span class="tag" style="background: #e0f2fe; color: #075985; font-weight: bold;">✓ Confirmed by Farmer</span>
+            }
+            else if (Model.OrderStatus == "Dispatched")
+            {
+                <span class="tag" style="background: #ede9fe; color: #5b21b6; font-weight: bold;">🚚 Dispatched (In Transit)</span>
+            }
+            else if (Model.OrderStatus == "Delivered")
+            {
+                <span class="tag" style="background: #dcfce7; color: #166534; font-weight: bold;">🎉 Delivered</span>
+            }
+            else
+            {
+                <span class="tag" style="background: #fee2e2; color: #991b1b; font-weight: bold;">❌ Cancelled</span>
+            }
+
+            <span style="margin-left: 15px;"><strong>Payment:</strong> @Model.PaymentMethod</span>
+            @if (Model.PaymentStatus == "Paid")
+            {
+                <span class="tag" style="background: #dcfce7; color: #166534; font-weight: bold;">✓ Paid</span>
+            }
+            else
+            {
+                <span class="tag" style="background: #fef3c7; color: #92400e; font-weight: bold;">⏳ Payment Pending</span>
+            }
+        </div>
+
+        @if (Model.OrderStatus == "Dispatched" || Model.OrderStatus == "Delivered")
+        {
+            <a asp-controller="Order" asp-action="Invoice" asp-route-id="@Model.Id" class="btn btn-sm" target="_blank">
+                🖨️ Printable Bill
+            </a>
+        }
+    </div>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+    <!-- Order Summary Column -->
     <div class="box">
         <div class="box-header">Order Summary</div>
 
@@ -50,62 +95,55 @@
                 <td><strong>@Model.OrderNumber</strong></td>
             </tr>
             <tr>
-                <th>Order Date:</th>
+                <th>Date Placed:</th>
                 <td>@Model.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
             </tr>
-<<<<<<< HEAD
             <tr>
-                <th>Order Status:</th>
-                <td><span class="tag">@Model.OrderStatus</span></td>
+                <th>Date Confirmed:</th>
+                <td>@(Model.ConfirmedAt.HasValue ? Model.ConfirmedAt.Value.ToString("yyyy-MM-dd HH:mm") : "Awaiting confirmation")</td>
             </tr>
             <tr>
-                <th>Payment:</th>
-                <td>
-                    @Model.PaymentMethod (<span class="tag">@Model.PaymentStatus</span>)
-                    @if ((isFarmer || isAdmin) && Model.PaymentStatus != "Paid")
-                    {
-                        <form asp-controller="Order" asp-action="ConfirmPayment" method="post" style="display: inline; margin-left: 5px;">
-                            @Html.AntiForgeryToken()
-                            <input type="hidden" name="orderId" value="@Model.Id" />
-                            <input type="hidden" name="paymentStatus" value="Paid" />
-                            <button type="submit" class="btn btn-sm">Mark as Paid</button>
-                        </form>
-                    }
-                </td>
+                <th>Date Dispatched:</th>
+                <td>@(Model.DispatchedAt.HasValue ? Model.DispatchedAt.Value.ToString("yyyy-MM-dd HH:mm") : "Not dispatched")</td>
             </tr>
             <tr>
-                <th>Product:</th>
+                <th>Date Delivered:</th>
+                <td>@(Model.DeliveredAt.HasValue ? Model.DeliveredAt.Value.ToString("yyyy-MM-dd HH:mm") : "Pending delivery")</td>
+            </tr>
+            <tr>
+                <th>Produce:</th>
                 <td>
                     <a asp-controller="Product" asp-action="Details" asp-route-id="@Model.ProductId">
                         @(Model.Product?.Name ?? "Product #" + Model.ProductId)
                     </a>
+                    (@(Model.Product?.Category ?? "Produce"))
                 </td>
-=======
-
-            <tr>
-                <th>Payment:</th>
-                <td>@Model.PaymentMethod (<span class="tag">@Model.PaymentStatus</span>)</td>
-            </tr>
-            <tr>
-                <th>Product:</th>
-                <td>@Model.Product?.Name</td>
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
             </tr>
             <tr>
                 <th>Quantity:</th>
-                <td>@Model.Quantity @Model.Product?.Unit</td>
+                <td><strong>@Model.Quantity @Model.Product?.Unit</strong></td>
             </tr>
             <tr>
                 <th>Unit Price:</th>
-                <td>₹@Model.UnitPrice.ToString("0.##")</td>
+                <td>₹@Model.UnitPrice.ToString("0.##") / @Model.Product?.Unit</td>
             </tr>
             <tr>
                 <th>Total Amount:</th>
-                <td><strong>₹@Model.TotalAmount.ToString("0.##")</strong></td>
+                <td><strong style="font-size: 16px; color: #15803d;">₹@Model.TotalAmount.ToString("0.##")</strong></td>
+            </tr>
+            <tr>
+                <th>Payment Method:</th>
+                <td>
+                    <strong>@Model.PaymentMethod</strong>
+                    (<span class="tag">@Model.PaymentStatus</span>)
+                </td>
             </tr>
             <tr>
                 <th>Buyer:</th>
-                <td>@Model.Buyer?.FullName (@Model.Buyer?.PhoneNumber)</td>
+                <td>
+                    @Model.Buyer?.FullName (@Model.Buyer?.PhoneNumber)<br />
+                    <small style="color: #666;">Buyer UPI: @(Model.Buyer?.UpiId ?? "Not provided")</small>
+                </td>
             </tr>
             <tr>
                 <th>Delivery Address:</th>
@@ -113,39 +151,258 @@
             </tr>
             <tr>
                 <th>Farmer:</th>
-<<<<<<< HEAD
-                <td>@(Model.Farmer?.FarmName ?? Model.Farmer?.FullName) (@Model.Farmer?.PhoneNumber)</td>
+                <td>
+                    @(Model.Farmer?.FarmName ?? Model.Farmer?.FullName) (@Model.Farmer?.PhoneNumber)<br />
+                    <small style="color: #666;">Farmer UPI: <strong>@(Model.Farmer?.UpiId ?? "Not provided")</strong></small>
+                </td>
             </tr>
         </table>
 
-        <!-- Buyer Order Actions -->
+        <!-- Consumer Actions Section -->
         @if (isBuyer)
         {
-            <div style="margin-top: 15px; border-top: 1px solid #ccc; padding-top: 10px; display: flex; gap: 10px; flex-wrap: wrap;">
-                @if (Model.OrderStatus == "Pending")
-                {
-                    <form asp-controller="Order" asp-action="CancelOrder" method="post" onsubmit="return confirm('Are you sure you want to cancel this order?');">
-                        @Html.AntiForgeryToken()
-                        <input type="hidden" name="orderId" value="@Model.Id" />
-                        <button type="submit" class="btn btn-sm">Cancel Order</button>
-                    </form>
-                }
+            <div style="margin-top: 15px; border-top: 1px solid #ccc; padding-top: 12px;">
+                <div style="font-weight: bold; margin-bottom: 8px;">Consumer Actions:</div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
 
-                @if (Model.OrderStatus == "Delivered" && !Model.Reviews.Any())
-                {
-                    <a asp-controller="Review" asp-action="Create" asp-route-orderId="@Model.Id" class="btn btn-sm btn-primary">
-                        ★ Rate Farmer &amp; Write Review
-                    </a>
-                }
+                    <!-- Cancel Button: ONLY IF NOT DISPATCHED -->
+                    @if (Model.OrderStatus != "Dispatched" && Model.OrderStatus != "Delivered" && Model.OrderStatus != "Cancelled")
+                    {
+                        <form asp-controller="Order" asp-action="CancelOrder" method="post" onsubmit="return confirm('Are you sure you want to cancel this order? Inventory will be restored.');">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="orderId" value="@Model.Id" />
+                            <button type="submit" class="btn btn-sm" style="color: #b91c1c; border-color: #b91c1c;">
+                                ✖ Cancel Order
+                            </button>
+                        </form>
+                    }
+                    else if (Model.OrderStatus == "Dispatched")
+                    {
+                        <span style="font-size: 12px; color: #64748b; font-style: italic;">
+                            ℹ️ Order has been dispatched and cannot be cancelled.
+                        </span>
+                    }
+
+                    <!-- Mark Delivered Button (when Dispatched) -->
+                    @if (Model.OrderStatus == "Dispatched")
+                    {
+                        <form asp-controller="Order" asp-action="MarkDelivered" method="post" onsubmit="return confirm('Confirm that you have received this order?');">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="orderId" value="@Model.Id" />
+                            <button type="submit" class="btn btn-sm btn-primary" style="background: #15803d; border-color: #15803d; color: #fff; font-weight: bold;">
+                                ✓ Delivered (I Received Order)
+                            </button>
+                        </form>
+                    }
+
+                    <!-- Payment Completed Button (for COD after delivery or Online UPI) -->
+                    @if (Model.PaymentStatus != "Paid" && (Model.OrderStatus == "Accepted" || Model.OrderStatus == "Dispatched" || Model.OrderStatus == "Delivered"))
+                    {
+                        <form asp-controller="Order" asp-action="CompletePayment" method="post" onsubmit="return confirm('Confirm that you have completed the payment of ₹@Model.TotalAmount.ToString("0.##") to the farmer?');">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="orderId" value="@Model.Id" />
+                            <button type="submit" class="btn btn-sm" style="background: #0284c7; border-color: #0284c7; color: #fff; font-weight: bold;">
+                                💳 Payment Completed
+                            </button>
+                        </form>
+                    }
+
+                    <!-- Review Button (when Delivered) -->
+                    @if (Model.OrderStatus == "Delivered" && !Model.Reviews.Any())
+                    {
+                        <a asp-controller="Review" asp-action="Create" asp-route-orderId="@Model.Id" class="btn btn-sm btn-primary">
+                            ★ Write Review
+                        </a>
+                    }
+                </div>
             </div>
         }
     </div>
 
-    <!-- Tracking and Management Column -->
+    <!-- Tracking, Payment & Fulfillment Column -->
     <div>
-        <!-- Order Tracking Box (R.5.2) -->
+        <!-- Transporter Details Box -->
+        <div class="box" style="margin-bottom: 15px; border-color: #f59e0b; background: #fffbeb;">
+            <div class="box-header" style="color: #92400e;">🚚 Transporter Details (Truck Driver)</div>
+            @if (!string.IsNullOrWhiteSpace(Model.TransporterName))
+            {
+                <table class="simple-table" style="background: #fff;">
+                    <tr>
+                        <th style="width: 40%;">Transporter / Driver:</th>
+                        <td><strong>@Model.TransporterName</strong></td>
+                    </tr>
+                    <tr>
+                        <th>Contact Number:</th>
+                        <td><strong><a href="tel:@Model.TransporterContact">@Model.TransporterContact</a></strong></td>
+                    </tr>
+                    @if (Model.DispatchedAt.HasValue)
+                    {
+                        <tr>
+                            <th>Dispatched On:</th>
+                            <td>@Model.DispatchedAt.Value.ToString("yyyy-MM-dd HH:mm")</td>
+                        </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <p style="color: #78350f; font-size: 13px; margin: 4px 0;">
+                    Transporter information will be filled and displayed here once the farmer dispatches the order.
+                </p>
+            }
+        </div>
+
+        <!-- Online UPI Payment Instruction Box -->
+        @if (Model.PaymentMethod == "UPI" || (Model.PaymentMethod == "CashOnDelivery" && Model.OrderStatus == "Delivered"))
+        {
+            <div class="box" style="margin-bottom: 15px; border-color: #3b82f6; background: #eff6ff;">
+                <div class="box-header" style="color: #1e40af;">💳 UPI Payment Instructions</div>
+                <div style="font-size: 13px; color: #1e3a8a;">
+                    <p style="margin: 0 0 6px 0;">
+                        <strong>Payable Amount:</strong> <span style="font-size: 16px; font-weight: bold; color: #15803d;">₹@Model.TotalAmount.ToString("0.##")</span>
+                    </p>
+                    <p style="margin: 0 0 6px 0;">
+                        <strong>Farmer UPI ID:</strong> 
+                        <span style="font-family: monospace; font-size: 14px; font-weight: bold; background: #fff; padding: 3px 8px; border: 1px dashed #3b82f6; border-radius: 4px; display: inline-block;">
+                            @(string.IsNullOrWhiteSpace(Model.Farmer?.UpiId) ? "Pending farmer UPI update" : Model.Farmer.UpiId)
+                        </span>
+                    </p>
+
+                    @if (Model.PaymentStatus == "Paid")
+                    {
+                        <div style="color: #15803d; font-weight: bold; margin-top: 8px;">
+                            ✓ Payment of ₹@Model.TotalAmount.ToString("0.##") has been marked as completed!
+                        </div>
+                    }
+                    else if (isBuyer)
+                    {
+                        <p style="margin: 6px 0 10px 0; font-size: 12px; color: #475569;">
+                            Please open your UPI App (GPay, PhonePe, Paytm, BHIM), transfer ₹@Model.TotalAmount.ToString("0.##") to <strong>@(Model.Farmer?.UpiId ?? "the farmer's UPI ID")</strong>, and click below:
+                        </p>
+                        <form asp-controller="Order" asp-action="CompletePayment" method="post" style="display: inline;">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="orderId" value="@Model.Id" />
+                            <button type="submit" class="btn btn-sm btn-primary" style="background: #2563eb; border-color: #2563eb; color: #fff; font-weight: bold;">
+                                ✓ I Have Made the Payment (Payment Completed)
+                            </button>
+                        </form>
+                    }
+                    else if (isFarmer)
+                    {
+                        <p style="margin: 6px 0 0 0; font-size: 12px; color: #475569;">
+                            Consumer will transfer the amount to your UPI ID: <strong>@Model.Farmer?.UpiId</strong>. You will receive a notification once payment is completed.
+                        </p>
+                        @if (Model.PaymentStatus != "Paid")
+                        {
+                            <form asp-controller="Order" asp-action="ConfirmPayment" method="post" style="margin-top: 8px;">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="orderId" value="@Model.Id" />
+                                <input type="hidden" name="paymentStatus" value="Paid" />
+                                <button type="submit" class="btn btn-sm">Confirm Received Payment (Mark Paid)</button>
+                            </form>
+                        }
+                    }
+                </div>
+            </div>
+        }
+
+        <!-- Farmer Fulfillment Controls Box -->
+        @if (isFarmer || isAdmin)
+        {
+            <div class="box" style="margin-bottom: 15px;">
+                <div class="box-header">Farmer Fulfillment Actions</div>
+
+                <!-- Step 1: Farmer Confirmation (if Pending) -->
+                @if (Model.OrderStatus == "Pending")
+                {
+                    <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 12px; border-radius: 4px; margin-bottom: 12px;">
+                        <h4 style="margin: 0 0 6px 0; color: #92400e;">Step 1: Confirm Order</h4>
+                        <p style="margin: 0 0 10px 0; font-size: 13px; color: #78350f;">
+                            Review the consumer order request. Once you confirm, the consumer will be notified with your UPI ID to make payment.
+                        </p>
+                        @if (string.IsNullOrWhiteSpace(Model.Farmer?.UpiId))
+                        {
+                            <div style="color: #b91c1c; font-size: 12px; margin-bottom: 8px;">
+                                ⚠️ You must add your UPI ID in your profile before confirming this order.
+                            </div>
+                            <a asp-controller="Account" asp-action="Profile" asp-route-returnUrl="@Url.Action("Details", "Order", new { id = Model.Id })" class="btn btn-sm btn-primary">
+                                Edit Profile &amp; Add UPI ID
+                            </a>
+                        }
+                        else
+                        {
+                            <form asp-controller="Order" asp-action="ConfirmOrder" method="post" style="display: inline;">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="orderId" value="@Model.Id" />
+                                <button type="submit" class="btn btn-primary btn-sm" style="background: #15803d; border-color: #15803d; color: #fff; font-weight: bold;">
+                                    ✓ Confirm Order
+                                </button>
+                            </form>
+                        }
+                    </div>
+                }
+
+                <!-- Step 2: Dispatch Order Form (When Accepted or Confirmed) -->
+                @if (Model.OrderStatus == "Accepted")
+                {
+                    <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 12px; border-radius: 4px; margin-bottom: 12px;">
+                        <h4 style="margin: 0 0 6px 0; color: #166534;">Step 2: Dispatch Order &amp; Transporter Info</h4>
+                        <p style="margin: 0 0 10px 0; font-size: 13px; color: #14532d;">
+                            Fill in the Transporter (Truck Driver) details to dispatch this harvest order. The consumer will receive dispatch and driver details.
+                        </p>
+
+                        @if (Model.PaymentMethod == "UPI" && Model.PaymentStatus != "Paid")
+                        {
+                            <div style="background: #fffbeb; border: 1px solid #fef08a; padding: 8px; font-size: 12px; color: #854d0e; margin-bottom: 10px;">
+                                ℹ️ Note: Online UPI payment status is currently <strong>Pending</strong>. Please verify payment before or upon dispatching.
+                            </div>
+                        }
+
+                        <form asp-controller="Order" asp-action="DispatchOrder" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="orderId" value="@Model.Id" />
+
+                            <div class="form-group" style="margin-bottom: 8px;">
+                                <label class="form-label">Transporter / Truck Driver Full Name: *</label>
+                                <input type="text" name="transporterName" class="form-control" required placeholder="e.g. Ramesh Kumar (Driver)" value="@Model.TransporterName" />
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 8px;">
+                                <label class="form-label">Transporter Contact Number: *</label>
+                                <input type="text" name="transporterContact" class="form-control" required placeholder="e.g. +91 98765 12345" value="@Model.TransporterContact" />
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 10px;">
+                                <label class="form-label">Dispatch Notes (Optional):</label>
+                                <input type="text" name="notes" class="form-control" placeholder="e.g. Loaded in truck MH-12-AB-1234..." />
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-sm" style="background: #7c3aed; border-color: #7c3aed; color: #fff; font-weight: bold;">
+                                🚚 Dispatch Order
+                            </button>
+                        </form>
+                    </div>
+                }
+
+                @if (Model.OrderStatus == "Dispatched")
+                {
+                    <div style="padding: 10px; background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 4px; font-size: 13px; color: #581c87;">
+                        🚚 Order is currently in transit with <strong>@Model.TransporterName</strong> (@Model.TransporterContact). Waiting for consumer delivery confirmation.
+                    </div>
+                }
+
+                @if (Model.OrderStatus == "Delivered")
+                {
+                    <div style="padding: 10px; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 4px; font-size: 13px; color: #065f46;">
+                        🎉 Order successfully delivered to @Model.Buyer?.FullName!
+                    </div>
+                }
+            </div>
+        }
+
+        <!-- Order Tracking Lifecycle Box -->
         <div class="box">
-            <div class="box-header">Order Tracking &amp; Status</div>
+            <div class="box-header">Order Lifecycle &amp; Tracking</div>
             <p><strong>Current Status:</strong> <span class="tag">@Model.OrderStatus</span></p>
             <p><strong>Last Updated:</strong> @Model.UpdatedAt.ToString("yyyy-MM-dd HH:mm")</p>
             <p>
@@ -154,42 +411,11 @@
             </p>
 
             <div style="background: #f9f9f9; border: 1px solid #eee; padding: 8px; margin-top: 10px; font-size: 12px; color: #555;">
-                <strong>Order Lifecycle:</strong> Pending &rarr; Accepted &rarr; Packed &rarr; Shipped &rarr; Delivered
+                <strong>Lifecycle:</strong> Placed &rarr; Confirmed &rarr; Dispatched (with Transporter) &rarr; Delivered
             </div>
         </div>
 
-        <!-- Farmer / Admin Fulfillment Controls (R.5.2) -->
-        @if (isFarmer || isAdmin)
-        {
-            <div class="box">
-                <div class="box-header">Update Order Status (Farmer Fulfillment)</div>
-                <form asp-controller="Order" asp-action="UpdateStatus" method="post">
-                    @Html.AntiForgeryToken()
-                    <input type="hidden" name="OrderId" value="@Model.Id" />
-
-                    <div class="form-group">
-                        <label class="form-label">Change Status:</label>
-                        <select name="NewStatus" class="form-select">
-                            <option value="Pending" selected="@(Model.OrderStatus == "Pending")">Pending</option>
-                            <option value="Accepted" selected="@(Model.OrderStatus == "Accepted")">Accepted</option>
-                            <option value="Packed" selected="@(Model.OrderStatus == "Packed")">Packed</option>
-                            <option value="Shipped" selected="@(Model.OrderStatus == "Shipped")">Shipped</option>
-                            <option value="Delivered" selected="@(Model.OrderStatus == "Delivered")">Delivered</option>
-                            <option value="Cancelled" selected="@(Model.OrderStatus == "Cancelled")">Cancelled</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Tracking / Dispatch Notes:</label>
-                        <input type="text" name="Notes" value="@Model.TrackingNotes" class="form-control" placeholder="e.g. Dispatched via local courier..." />
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-sm">Update Order Status</button>
-                </form>
-            </div>
-        }
-
-        <!-- Reviews & Feedback Box (R.6.1 & R.6.2) -->
+        <!-- Reviews & Feedback Box -->
         @if (Model.Reviews.Any())
         {
             <div class="box">
@@ -204,15 +430,5 @@
                 }
             </div>
         }
-=======
-                <td>@(Model.Farmer?.FarmName ?? Model.Farmer?.FullName)</td>
-            </tr>
-        </table>
-
-        <!-- Milestone 2 Notice -->
-        <div style="border-top: 1px solid #ccc; padding-top: 12px; margin-top: 12px; font-size: 13px; color: #555;">
-            <em>* Live order dispatch tracking (Pending, Shipped, Delivered) and farmer review submission are scheduled for Milestone 2.</em>
-        </div>
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
     </div>
 </div>

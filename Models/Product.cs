@@ -33,7 +33,7 @@ namespace AgriDirect.Models
         public decimal QuantityInStock { get; set; }
 
         [Required, MaxLength(20)]
-        public string Unit { get; set; } = "kg"; // kg, quintal, crate, box, liter
+        public string Unit { get; set; } = "kg"; // kg, quintal, crate, box, liter, dozen
 
         [Required]
         public DateTime HarvestDate { get; set; } = DateTime.UtcNow.Date;

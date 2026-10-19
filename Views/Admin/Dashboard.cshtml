@@ -24,11 +24,53 @@
         <small style="color: #666;">Direct produce purchasers</small>
     </div>
     <div class="box">
-        <div style="font-size: 11px; color: #666; font-weight: bold;">MARKETPLACE PRODUCTS</div>
-        <div style="font-size: 22px; font-weight: bold; margin-top: 5px;">@Model.TotalProducts</div>
-        <small style="color: #666;">Available harvest listings</small>
+        <div style="font-size: 11px; color: #666; font-weight: bold;">PENDING APPROVALS</div>
+        <div style="font-size: 22px; font-weight: bold; margin-top: 5px; color: @(Model.PendingUserApprovals > 0 ? "#b45309" : "#333");">@Model.PendingUserApprovals</div>
+        <small style="color: #666;">Farmers awaiting verification</small>
     </div>
 </div>
+
+@if (Model.PendingFarmers.Any())
+{
+    <div class="box" style="margin-bottom: 20px; border: 1px solid #f59e0b; background: #fffbeb;">
+        <div class="box-header" style="color: #92400e; font-weight: bold;">⚠️ Pending Farmer Profile Approvals (@Model.PendingFarmers.Count)</div>
+        <p style="font-size: 13px; color: #78350f; margin-bottom: 10px;">The following farmers registered recently and cannot list produce until approved by an administrator:</p>
+        <table class="simple-table">
+            <thead>
+                <tr>
+                    <th>Farmer Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Farm Details</th>
+                    <th>UPI ID</th>
+                    <th>Registration Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var farmer in Model.PendingFarmers)
+                {
+                    <tr>
+                        <td><strong>@farmer.FullName</strong></td>
+                        <td>@farmer.Email</td>
+                        <td>@farmer.PhoneNumber</td>
+                        <td>@(farmer.FarmName ?? "N/A") (@(farmer.FarmLocation ?? farmer.Address))</td>
+                        <td>@(string.IsNullOrWhiteSpace(farmer.UpiId) ? "Not added yet" : farmer.UpiId)</td>
+                        <td>@farmer.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+                        <td>
+                            <form asp-controller="Admin" asp-action="UpdateUserStatus" method="post" style="display: inline;">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="userId" value="@farmer.Id" />
+                                <input type="hidden" name="status" value="Active" />
+                                <button type="submit" class="btn btn-sm btn-primary" style="background: #15803d; border-color: #15803d; color: #fff; font-weight: bold;">✓ Approve Farmer</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
     <!-- Registered Users Overview -->

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* AgriDirect - Clean & Decent Agricultural Marketplace Styling */
 
 :root {
@@ -43,10 +42,6 @@
     --info-text: #1e40af;
     --info-border: #bfdbfe;
 }
-=======
-/* AgriDirect - Student Project Minimal Prototype Stylesheet
-   Clean, simple, no colorful decorations */
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 
 * {
     box-sizing: border-box;
@@ -55,7 +50,6 @@
 }
 
 body {
-<<<<<<< HEAD
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 14px;
     line-height: 1.5;
@@ -75,29 +69,10 @@ a {
 a:hover {
     color: var(--primary-hover);
     text-decoration: underline;
-=======
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.4;
-    color: #111;
-    background-color: #ffffff;
-    padding: 0;
-    margin: 0;
-}
-
-a {
-    color: #0033aa;
-    text-decoration: underline;
-}
-
-a:hover {
-    color: #001166;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 }
 
 /* NAVBAR */
 .navbar {
-<<<<<<< HEAD
     background-color: var(--bg-card);
     border-bottom: 1px solid var(--border);
     padding: 12px 20px;
@@ -109,21 +84,11 @@ a:hover {
 
 .nav-container {
     max-width: 1100px;
-=======
-    border-bottom: 2px solid #000;
-    background-color: #f9f9f9;
-    padding: 10px 15px;
-}
-
-.nav-container {
-    max-width: 1000px;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-<<<<<<< HEAD
     gap: 15px;
 }
 
@@ -140,32 +105,18 @@ a:hover {
 
 .brand-title:hover {
     color: var(--primary-hover);
-=======
-    gap: 10px;
-}
-
-.brand-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #000;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
     text-decoration: none;
 }
 
 .nav-menu {
     list-style: none;
     display: flex;
-<<<<<<< HEAD
     gap: 6px;
-=======
-    gap: 15px;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
     align-items: center;
     flex-wrap: wrap;
 }
 
 .nav-menu a {
-<<<<<<< HEAD
     color: var(--text-main);
     text-decoration: none;
     font-weight: 500;
@@ -179,84 +130,47 @@ a:hover {
     color: var(--primary);
     background-color: var(--primary-light);
     text-decoration: none;
-=======
-    color: #111;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 3px 6px;
-}
-
-.nav-menu a:hover {
-    text-decoration: underline;
-    background: #e5e5e5;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 }
 
 .nav-user {
     display: flex;
     align-items: center;
-<<<<<<< HEAD
     gap: 12px;
-=======
-    gap: 10px;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 }
 
 /* MAIN CONTAINER */
 .container {
-<<<<<<< HEAD
     max-width: 1100px;
     margin: 25px auto;
     padding: 0 20px;
-=======
-    max-width: 1000px;
-    margin: 20px auto;
-    padding: 0 15px;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
     min-height: 75vh;
 }
 
 /* HEADINGS */
 h1 {
-<<<<<<< HEAD
     font-size: 24px;
     font-weight: 700;
     color: var(--text-main);
     margin-bottom: 12px;
     letter-spacing: -0.4px;
-=======
-    font-size: 22px;
-    margin-bottom: 8px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 5px;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 }
 
 h2 {
     font-size: 18px;
-<<<<<<< HEAD
     font-weight: 600;
     color: var(--text-main);
     margin: 20px 0 10px;
-=======
-    margin: 15px 0 8px;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 }
 
 h3 {
     font-size: 15px;
-<<<<<<< HEAD
     font-weight: 600;
     color: var(--text-main);
     margin-bottom: 6px;
-=======
-    margin-bottom: 5px;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 }
 
 p {
     margin-bottom: 10px;
-<<<<<<< HEAD
     color: var(--text-main);
 }
 
@@ -302,45 +216,10 @@ p {
     background-color: var(--bg-muted);
     border-color: #94a3b8;
     color: var(--text-main);
-=======
-}
-
-/* SIMPLE BOX / CARD */
-.box {
-    border: 1px solid #333;
-    background-color: #fff;
-    padding: 12px;
-    margin-bottom: 15px;
-}
-
-.box-header {
-    font-weight: bold;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-}
-
-/* SIMPLE BUTTONS */
-.btn {
-    display: inline-block;
-    padding: 4px 10px;
-    border: 1px solid #000;
-    background-color: #fff;
-    color: #000;
-    text-decoration: none;
-    font-size: 13px;
-    cursor: pointer;
-    font-family: inherit;
-}
-
-.btn:hover {
-    background-color: #eee;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
     text-decoration: none;
 }
 
 .btn-primary {
-<<<<<<< HEAD
     background-color: var(--primary);
     color: #ffffff !important;
     border-color: var(--primary);
@@ -355,50 +234,25 @@ p {
 
 .btn-sm {
     padding: 4px 10px;
-=======
-    background-color: #222;
-    color: #fff;
-    border-color: #000;
-}
-
-.btn-primary:hover {
-    background-color: #444;
-    color: #fff;
-}
-
-.btn-sm {
-    padding: 2px 6px;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
     font-size: 12px;
 }
 
 /* FORMS */
 .form-group {
-<<<<<<< HEAD
     margin-bottom: 14px;
-=======
-    margin-bottom: 12px;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 }
 
 .form-label {
     display: block;
-<<<<<<< HEAD
     font-weight: 600;
     margin-bottom: 5px;
     font-size: 13px;
     color: var(--text-main);
-=======
-    font-weight: bold;
-    margin-bottom: 3px;
-    font-size: 13px;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 }
 
 .form-control, .form-select {
     display: block;
     width: 100%;
-<<<<<<< HEAD
     padding: 7px 11px;
     border: 1px solid var(--border-hover);
     border-radius: var(--radius-sm);
@@ -414,14 +268,6 @@ p {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.15);
-=======
-    padding: 5px 8px;
-    border: 1px solid #666;
-    font-size: 13px;
-    font-family: inherit;
-    background-color: #fff;
-    box-sizing: border-box;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 }
 
 textarea.form-control {
@@ -429,7 +275,6 @@ textarea.form-control {
 }
 
 .text-error {
-<<<<<<< HEAD
     color: var(--danger-text);
     font-size: 12px;
     margin-top: 4px;
@@ -445,23 +290,10 @@ table.simple-table {
     border-radius: var(--radius-sm);
     overflow: hidden;
     border: 1px solid var(--border);
-=======
-    color: #b00;
-    font-size: 12px;
-}
-
-/* SIMPLE TABLES */
-table.simple-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 10px 0;
-    background: #fff;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 }
 
 table.simple-table th,
 table.simple-table td {
-<<<<<<< HEAD
     padding: 9px 12px;
     font-size: 13px;
     text-align: left;
@@ -550,70 +382,10 @@ table.simple-table tbody tr:last-child td {
     font-weight: 700;
     color: var(--primary);
     margin: 8px 0;
-=======
-    border: 1px solid #555;
-    padding: 6px 8px;
-    font-size: 13px;
-    text-align: left;
-}
-
-table.simple-table th {
-    background-color: #eee;
-    font-weight: bold;
-}
-
-/* MARKETPLACE SIMPLE CARDS / BOXES */
-.marketplace-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.product-item-box {
-    border: 1px solid #333;
-    padding: 10px;
-    background-color: #fafafa;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.product-item-img-placeholder {
-    height: 90px;
-    border: 1px dashed #888;
-    background-color: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    color: #666;
-    margin-bottom: 8px;
-}
-
-.product-item-title {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 4px;
-}
-
-.product-item-detail {
-    font-size: 12px;
-    color: #444;
-    margin-bottom: 3px;
-}
-
-.product-item-price {
-    font-size: 15px;
-    font-weight: bold;
-    color: #000;
-    margin: 6px 0;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 }
 
 /* ALERTS */
 .alert {
-<<<<<<< HEAD
     border: 1px solid var(--success-border);
     background-color: var(--success-bg);
     color: var(--success-text);
@@ -640,27 +412,10 @@ table.simple-table th {
 .tag:has(+ span),
 .tag {
     letter-spacing: 0.2px;
-=======
-    border: 1px solid #333;
-    background-color: #f2f2f2;
-    padding: 8px 12px;
-    margin-bottom: 15px;
-    font-size: 13px;
-}
-
-/* SIMPLE TAGS / LABELS */
-.tag {
-    display: inline-block;
-    border: 1px solid #666;
-    padding: 1px 5px;
-    font-size: 11px;
-    background-color: #eee;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 }
 
 /* FOOTER */
 .footer {
-<<<<<<< HEAD
     border-top: 1px solid var(--border);
     background-color: #ffffff;
     padding: 20px;
@@ -668,12 +423,4 @@ table.simple-table th {
     font-size: 12.5px;
     color: var(--text-muted);
     margin-top: 40px;
-=======
-    border-top: 1px solid #ccc;
-    padding: 15px;
-    text-align: center;
-    font-size: 12px;
-    color: #666;
-    margin-top: 30px;
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 }

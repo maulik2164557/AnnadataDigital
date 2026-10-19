@@ -41,12 +41,16 @@ namespace AgriDirect.Models.ViewModels
 
         [Display(Name = "Farm Location / District")]
         public string? FarmLocation { get; set; }
+
+        [Display(Name = "UPI ID (e.g. name@okhdfcbank / mobile@upi)")]
+        [StringLength(100)]
+        public string? UpiId { get; set; }
     }
 
     public class LoginViewModel
     {
-        [Required(ErrorMessage = "Email is required")]
-        [EmailAddress(ErrorMessage = "Invalid email format")]
+        [Required(ErrorMessage = "Email or username is required")]
+        [Display(Name = "Email or Username")]
         public string Email { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Password is required")]
@@ -87,6 +91,10 @@ namespace AgriDirect.Models.ViewModels
 
         [Display(Name = "Farm Location")]
         public string? FarmLocation { get; set; }
+
+        [Display(Name = "UPI ID (for payments)")]
+        [StringLength(100)]
+        public string? UpiId { get; set; }
 
         public double AverageRating { get; set; }
         public int TotalRatingsCount { get; set; }

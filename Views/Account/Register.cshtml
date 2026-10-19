@@ -17,11 +17,8 @@
                 <label style="margin-right: 15px; cursor: pointer;">
                     <input type="radio" asp-for="Role" value="Consumer" checked onchange="toggleFarmer()" /> Consumer / Buyer
                 </label>
-                <label style="margin-right: 15px; cursor: pointer;">
-                    <input type="radio" asp-for="Role" value="Farmer" onchange="toggleFarmer()" /> Farmer / Producer
-                </label>
                 <label style="cursor: pointer;">
-                    <input type="radio" asp-for="Role" value="Admin" onchange="toggleFarmer()" /> Administrator
+                    <input type="radio" asp-for="Role" value="Farmer" onchange="toggleFarmer()" /> Farmer / Producer
                 </label>
                 <span asp-validation-for="Role" class="text-error"></span>
             </div>
@@ -52,6 +49,13 @@
                 <label asp-for="Address" class="form-label">Address:</label>
                 <input asp-for="Address" class="form-control" />
                 <span asp-validation-for="Address" class="text-error"></span>
+            </div>
+
+            <!-- UPI ID -->
+            <div class="form-group">
+                <label asp-for="UpiId" class="form-label">UPI ID (e.g. mobile@upi or name@okaxis):</label>
+                <input asp-for="UpiId" class="form-control" placeholder="e.g. name@okhdfcbank (Optional now, can be added later)" />
+                <span asp-validation-for="UpiId" class="text-error"></span>
             </div>
 
             <!-- Farmer Specific Fields -->

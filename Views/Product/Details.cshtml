@@ -7,10 +7,7 @@
     if (uidClaim != null) int.TryParse(uidClaim.Value, out currentUserId);
 
     bool isOwnerFarmer = (Model.FarmerId == currentUserId);
-<<<<<<< HEAD
     bool isConsumer = User.IsInRole("Consumer") || !User.Identity?.IsAuthenticated == true;
-=======
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
 }
 
 <div style="margin-bottom: 10px;">
@@ -24,7 +21,6 @@
     <div class="box">
         <div class="box-header">Produce Details</div>
 
-<<<<<<< HEAD
         <!-- Product Image Display (R.2.4 & R.2.5) -->
         <div style="margin-bottom: 12px; text-align: center;">
             @if (!string.IsNullOrWhiteSpace(Model.ImageUrl) && Model.ImageUrl != "/images/default-product.svg")
@@ -47,10 +43,6 @@
                     }
                 </div>
             }
-=======
-        <div class="product-item-img-placeholder" style="height: 120px;">
-            [Produce Image Placeholder]
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
         </div>
 
         <table class="simple-table">
@@ -64,7 +56,6 @@
             </tr>
             <tr>
                 <th>Available Quantity:</th>
-<<<<<<< HEAD
                 <td>
                     @if (Model.QuantityInStock > 0)
                     {
@@ -75,50 +66,32 @@
                         <span style="color: #b00; font-weight: bold;">Out of Stock</span>
                     }
                 </td>
-=======
-                <td>@Model.QuantityInStock @Model.Unit</td>
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
             </tr>
             <tr>
                 <th>Harvest Date:</th>
                 <td>@Model.HarvestDate.ToString("yyyy-MM-dd")</td>
             </tr>
-<<<<<<< HEAD
             <tr>
                 <th>Availability:</th>
                 <td><span class="tag">@(Model.QuantityInStock > 0 ? "Available Now" : "Sold Out")</span></td>
             </tr>
-=======
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
         </table>
 
         <div style="margin-top: 10px;">
             <strong>Product Description:</strong>
-<<<<<<< HEAD
             <p style="margin-top: 5px; color: #333;">@(string.IsNullOrWhiteSpace(Model.Description) ? "No description provided." : Model.Description)</p>
-=======
-            <p style="margin-top: 5px; color: #333;">@Model.Description</p>
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
         </div>
 
         @if (isOwnerFarmer)
         {
-<<<<<<< HEAD
             <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #ccc; display: flex; gap: 10px;">
-=======
-            <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #ccc;">
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
                 <a asp-controller="Product" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-primary">Edit This Product</a>
                 <a asp-controller="Product" asp-action="MyProducts" class="btn btn-sm">Manage My Products</a>
             </div>
         }
     </div>
 
-<<<<<<< HEAD
     <!-- Farmer Information & Ordering Box -->
-=======
-    <!-- Farmer Information & Status Box -->
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
     <div>
         <div class="box">
             <div class="box-header">Farmer / Origin Information</div>
@@ -126,7 +99,6 @@
             <p><strong>Farm Name:</strong> @(Model.Farmer?.FarmName ?? "Local Direct Farm")</p>
             <p><strong>Location:</strong> @(Model.Farmer?.FarmLocation ?? Model.Farmer?.Address)</p>
             <p><strong>Contact:</strong> @Model.Farmer?.PhoneNumber</p>
-<<<<<<< HEAD
             <p><strong>Farmer Rating:</strong> ★ @(Model.Farmer?.AverageRating.ToString("0.#") ?? "5.0") (@(Model.Farmer?.TotalRatingsCount ?? 0) ratings)</p>
         </div>
 
@@ -176,18 +148,6 @@
                     </div>
                 }
             }
-=======
-        </div>
-
-        <div class="box">
-            <div class="box-header">Order &amp; Review System Status</div>
-            <p style="color: #666; font-size: 13px; line-height: 1.5;">
-                Consumers can browse all product specifications, pricing, and farmer origins here.
-            </p>
-            <p style="color: #666; font-size: 13px; font-style: italic; border-left: 3px solid #666; padding-left: 8px;">
-                * Direct order checkout, live fulfillment tracking, and buyer reviews are planned for the upcoming project milestone.
-            </p>
->>>>>>> c511733c30d8b94b9b4b623339461792b2c7f34a
         </div>
     </div>
 </div>

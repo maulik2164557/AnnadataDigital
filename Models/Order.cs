@@ -61,6 +61,18 @@ namespace AgriDirect.Models
         [MaxLength(500)]
         public string? TrackingNotes { get; set; }
 
+        // Transporter Details
+        [MaxLength(150)]
+        public string? TransporterName { get; set; }
+
+        [MaxLength(50)]
+        public string? TransporterContact { get; set; }
+
+        // Lifecycle Timestamps
+        public DateTime? ConfirmedAt { get; set; }
+        public DateTime? DispatchedAt { get; set; }
+        public DateTime? DeliveredAt { get; set; }
+
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 

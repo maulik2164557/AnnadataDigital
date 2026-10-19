@@ -9,6 +9,19 @@
 
 <h1>User Account Management</h1>
 
+@if (TempData["Success"] != null)
+{
+    <div class="alert" style="margin-bottom: 12px; background: #ecfdf5; border: 1px solid #10b981; color: #065f46; padding: 8px 12px; border-radius: 4px;">
+        @TempData["Success"]
+    </div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert" style="margin-bottom: 12px; background: #fef2f2; border: 1px solid #ef4444; color: #991b1b; padding: 8px 12px; border-radius: 4px;">
+        @TempData["Error"]
+    </div>
+}
+
 <div class="box">
     <table class="simple-table">
         <thead>
@@ -16,7 +29,7 @@
                 <th>ID</th>
                 <th>Full Name</th>
                 <th>Email</th>
-                <th>Role</th>
+                <th>Role &amp; Permissions</th>
                 <th>Phone</th>
                 <th>Status</th>
                 <th>Action</th>
@@ -29,13 +42,33 @@
                     <td>#@u.Id</td>
                     <td><strong>@u.FullName</strong></td>
                     <td>@u.Email</td>
-                    <td><span class="tag">@u.Role</span></td>
+                    <td>
+                        <form asp-controller="Admin" asp-action="UpdateUserRole" method="post" style="display: inline-flex; align-items: center; gap: 4px;">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="userId" value="@u.Id" />
+                            <select name="newRole" class="form-select" style="padding: 2px 6px; font-size: 12px; width: 105px;">
+                                <option value="Consumer" selected="@(u.Role == "Consumer")">Consumer</option>
+                                <option value="Farmer" selected="@(u.Role == "Farmer")">Farmer</option>
+                                <option value="Admin" selected="@(u.Role == "Admin")">Admin</option>
+                            </select>
+                            <button type="submit" class="btn btn-sm">Set</button>
+                        </form>
+                    </td>
                     <td>@u.PhoneNumber</td>
                     <td>@u.Status</td>
                     <td>
                         @if (u.Role != "Admin")
                         {
-                            @if (u.Status != "Active")
+                            @if (u.Status == "PendingApproval")
+                            {
+                                <form asp-controller="Admin" asp-action="UpdateUserStatus" method="post" style="display: inline;">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="userId" value="@u.Id" />
+                                    <input type="hidden" name="status" value="Active" />
+                                    <button type="submit" class="btn btn-sm btn-primary" style="background: #15803d; border-color: #15803d; color: #fff; font-weight: bold;">✓ Approve Profile</button>
+                                </form>
+                            }
+                            else if (u.Status != "Active")
                             {
                                 <form asp-controller="Admin" asp-action="UpdateUserStatus" method="post" style="display: inline;">
                                     @Html.AntiForgeryToken()
