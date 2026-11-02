@@ -123,7 +123,7 @@ namespace AgriDirect.Controllers
             {
                 await _automationService.SendNotificationAsync(
                     user.Id,
-                    "🌾 Welcome to AgriDirect!",
+                    "🌾 Welcome to AnnadataDigital!",
                     $"Hello {user.FullName}, your {user.Role} account has been created successfully.",
                     "Account",
                     targetUrl
@@ -139,7 +139,7 @@ namespace AgriDirect.Controllers
                 return RedirectToAction("FarmerDashboard", "Account");
             }
 
-            TempData["Success"] = $"Welcome to AgriDirect, {user.FullName}! Your {user.Role} account has been created.";
+            TempData["Success"] = $"Welcome to AnnadataDigital, {user.FullName}! Your {user.Role} account has been created.";
 
             if (user.Role == "Admin")
             {
